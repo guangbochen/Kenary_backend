@@ -6,11 +6,17 @@
 	"require": {
 		"laravel/framework": "4.1.*"
 	},
+  "require-dev": {
+    "way/generators": "dev-master",
+    "phpunit/phpunit": "3.7.*",
+    "mockery/mockery": "0.7.*"
+  },
 	"autoload": {
 		"classmap": [
 			"app/commands",
 			"app/controllers",
 			"app/models",
+      "app/helpers",
 			"app/database/migrations",
 			"app/database/seeds",
 			"app/tests/TestCase.php"
@@ -32,5 +38,5 @@
 	"config": {
 		"preferred-install": "dist"
 	},
-	"minimum-stability": "stable"
+	"minimum-stability": "dev"
 }

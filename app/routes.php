@@ -11,7 +11,14 @@
 |
 */
 
-Route::get('/', function()
+Route::get('/', 'HomeController@index');
+
+
+//create a group of routes that will belong to APIv1
+Route::group(array('prefix' => 'api'), function()
 {
-	return View::make('hello');
+  Route::get ('/', 'api\IndexApiController@index');
+  Route::resource('temperatures/alarms', 'api\TempAlarmsApiController');
+  Route::resource('temperatures', 'api\TemperatureApiController');
 });
+

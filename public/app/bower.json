@@ -1,0 +1,24 @@
+{
+  "name": "UTS-raspberryPi",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "requirejs"                : "latest",
+    "jquery"                   : "latest",
+    "backbone-amd"             : "latest",
+    "tidepool-backbone.syphon" : "latest",
+    "underscore-amd"           : "latest",
+    "requirejs-text"           : "latest",
+    "requirejs-plugins"        : "~1.0.2",
+    "parsleyjs"                : "~2.0.0",
+    "bootstrap"                : "latest",
+    "fontawesome"              : "latest",
+    "ladda"                    : "latest",
+    "alertify.js"              : "~0.3.11",
+    "bootstrap-switch"         : "~2.0.1",
+    "jquery-maskedinputs"      : "latest",
+    "fancybox"                 : "latest",
+    "d3"                       : "latest"
+
+  }
+}
