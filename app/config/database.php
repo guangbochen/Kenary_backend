@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'RaspberryPi_DB',
+			'database'  => 'raspberry_pi',
 			'username'  => 'root',
 			'password'  => 'root',
 			'charset'   => 'utf8',

@@ -16,7 +16,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">UTS Raspberry Admin</a>
+      <a class="navbar-brand" href="#">UTS Raspberry Pi Admin</a>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
@@ -35,8 +35,8 @@
         <li class="active" id="view-index">
         <a href="#">Overview</a>
         </li>
-        <li id="view-tempratures">
-        <a href="#/tempratures">Tempratures</a>
+        <li id="view-temperatures">
+        <a href="#/temperatures">Temperatures</a>
         </li>
         <!-- <li id="view-deals"> -->
         <!--   <a href="#/deals">Delas</a> -->

@@ -3,13 +3,13 @@ define ([
     'jquery',
     'underscore',
     'backbone',
-    // 'collections/reservations',
+    'collections/temperatures',
     'views/home/index',
-    'views/tempratures/index',
+    'views/temperatures/index',
     'views/noises/index',
     'views/airs/index',
 
-], function ($, _, Backbone, HomeView, TempraturesView, NoisesView, AirsView) {
+], function ($, _, Backbone, TemperaturesCollection, HomeView, TemperaturesView, NoisesView, AirsView) {
     'use strict';
 
     var AppRouter = Backbone.Router.extend ({
@@ -17,7 +17,7 @@ define ([
         //define router url
         routes: {
             ''            : 'index',
-            'tempratures' : 'tempratures',
+            'temperatures' : 'temperatures',
             'noises'      : 'noises',
             'airs'        : 'airs',
         },
@@ -26,8 +26,7 @@ define ([
          * constructor
          */
         initialize: function () {
-          // this.restaurantsCollection = new RestaurantsCollection();
-          // this.reservationsCollection = new ReservationsCollection();
+          this.temperaturesCollection = new TemperaturesCollection();
         },
 
         index: function () {
@@ -35,9 +34,11 @@ define ([
           this.activeSidebar($('#view-index'));
         },
 
-        tempratures: function () {
-          this.showView (new TempraturesView ());
-          this.activeSidebar($('#view-tempratures'));
+        temperatures: function () {
+          this.showView (new TemperaturesView ({
+            collection: this.temperaturesCollection
+          }));
+          this.activeSidebar($('#view-temperatures'));
         },
 
         noises: function () {

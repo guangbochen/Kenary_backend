@@ -1,7 +1,6 @@
-
-DROP DATABASE RaspberryPi_DB;
-CREATE DATABASE IF NOT EXISTS RaspberryPi_DB;
-USE RaspberryPi_DB;
+DROP DATABASE raspberry_pi;
+CREATE DATABASE IF NOT EXISTS raspberry_pi;
+USE raspberry_pi;
 
 CREATE TABLE IF NOT EXISTS temperatures(
     id              INTEGER NOT NULL AUTO_INCREMENT,

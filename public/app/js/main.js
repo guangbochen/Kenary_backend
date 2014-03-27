@@ -3,11 +3,13 @@
 require.config ({
     waitSeconds : 15,
     paths: {
-        jquery         : 'vendor/jquery/dist/jquery.min',
-        underscore     : 'vendor/underscore-amd/underscore-min',
-        backbone       : 'vendor/backbone-amd/backbone-min',
-        syphon         : 'vendor/tidepool-backbone.syphon/lib/amd/backbone.syphon.min',
-        text           : 'vendor/requirejs-text/text',
+        jquery     : 'vendor/jquery/dist/jquery.min',
+        underscore : 'vendor/underscore-amd/underscore-min',
+        backbone   : 'vendor/backbone-amd/backbone-min',
+        syphon     : 'vendor/tidepool-backbone.syphon/lib/amd/backbone.syphon.min',
+        text       : 'vendor/requirejs-text/text',
+        d3         : 'vendor/d3/d3.min',
+        nvd3       : 'vendor/nvd3/nv.d3',
         // parsley        : 'vendor/parsleyjs/dist/parsley.min',
         // bootstrap      : 'vendor/bootstrap/dist/js/bootstrap.min',
         // async          : 'vendor/requirejs-plugins/src/async',

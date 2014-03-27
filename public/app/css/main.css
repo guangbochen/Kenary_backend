@@ -1,6 +1,6 @@
-/* @import url("bootstrap.min.css"); */
 @import url("../js/vendor/bootstrap/dist/css/bootstrap.min.css");
 @import url("../js/vendor/fontawesome/css/font-awesome.min.css");
+@import url("../js/vendor/nvd3/nv.d3.min.css");
 /* @import url("../js/vendor/parsleyjs/src/parsley.css"); */
 /* @import url("../js/vendor/ladda/dist/ladda-themeless.min.css"); */
 /* @import url("../js/vendor/alertify.js/themes/alertify.core.css"); */
@@ -17,11 +17,26 @@
 body {
   padding-top: 50px;
 }
+.navbar-inverse {
+  background-color: #455162;
+  border-color: #00749B;
+}
+
+.navbar-brand {
+  color: #fff !important;
+}
+
+.page-header {
+  color: #455162;
+}
+
+.fa-circle {
+  color: #455162;
+}
 
 /*
  * Global add-ons
  */
-
 a:hover {
   text-decoration: none;
 }
@@ -159,6 +174,6 @@ a:hover {
   border-radius: 0px !important;
 }
 
-.alertify-confirm {
-  margin-top:100px;
+.nvtooltip h3{
+  font-size: 14px ;
 }
