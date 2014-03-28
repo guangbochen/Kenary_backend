@@ -11,7 +11,7 @@ class TemperatureApiController extends \Controller
   {
     try
     {
-      return \Temperature::all();
+      return \Temperature::with('alarm')->get();
     }
     catch (Exception $e)
     {
@@ -31,5 +31,22 @@ class TemperatureApiController extends \Controller
       return JsonHandler::raiseError ($e->getMessage(), 500);
     }
   }
+
+  public function seed()
+  {
+    $input = array( 
+      'temperature_c' => 62,
+      'minus_threshold' => -10,
+      'plus_threshold' => 40,
+      'is_alarm' => 1,
+      'is_active' => 1,
+      'description' => ' Warning... needs fire assist immediately',
+      'snapshot_url' => "http://raspberrypi.dev/uploads/snapshot3.jpg",
+    );
+
+    $input = json_decode(json_encode($input));
+    return \Temperature::make(new \Temperature(), $input);
+  }
+
 }
 

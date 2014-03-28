@@ -18,6 +18,7 @@ Route::get('/', 'HomeController@index');
 Route::group(array('prefix' => 'api'), function()
 {
   Route::get ('/', 'api\IndexApiController@index');
+  Route::get ('temperatures/seed', 'api\TemperatureApiController@seed');
   Route::resource('temperatures/alarms', 'api\TempAlarmsApiController');
   Route::resource('temperatures', 'api\TemperatureApiController');
 });

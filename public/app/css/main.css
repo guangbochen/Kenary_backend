@@ -1,11 +1,11 @@
 @import url("../js/vendor/bootstrap/dist/css/bootstrap.min.css");
 @import url("../js/vendor/fontawesome/css/font-awesome.min.css");
 @import url("../js/vendor/nvd3/nv.d3.min.css");
+@import url("../js/vendor/alertify.js/themes/alertify.core.css");
+@import url("../js/vendor/alertify.js/themes/alertify.default.css");
+@import url("../js/vendor/bootstrap-switch/build/css/bootstrap3/bootstrap-switch.min.css");
 /* @import url("../js/vendor/parsleyjs/src/parsley.css"); */
 /* @import url("../js/vendor/ladda/dist/ladda-themeless.min.css"); */
-/* @import url("../js/vendor/alertify.js/themes/alertify.core.css"); */
-/* @import url("../js/vendor/alertify.js/themes/alertify.default.css"); */
-/* @import url("../js/vendor/bootstrap-switch/build/css/bootstrap3/bootstrap-switch.min.css"); */
 /* @import url("../js/vendor/jt.timepicker/jquery.timepicker.css"); */
 /* @import url("../js/vendor/fancybox/source/jquery.fancybox.css"); */
 
@@ -176,4 +176,28 @@ a:hover {
 
 .nvtooltip h3{
   font-size: 14px ;
+}
+
+/* css for temp */
+.temp_header {
+  padding-left: 25px;
+}
+
+.form-actions {
+  padding: 30px 20px 10px 20px;
+  margin-top: 20px;
+  background:#F5F5F5;
+}
+
+.alarm-header {
+  border-bottom: 0px !important;
+}
+
+.alarm-title {
+  margin-top: -30px;
+  margin-bottom: -20px;
+}
+
+.label {
+  font-size: 14px;
 }

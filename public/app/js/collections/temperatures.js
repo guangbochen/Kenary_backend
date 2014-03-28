@@ -1,15 +1,15 @@
 
 define ([
     'backbone',
-    'models/temperature',
+    'models/tempAlarm',
     'common',
-], function (Backbone, TemperatureModel, Common) {
+], function (Backbone, TempAlarmModel, Common) {
 
   'use strict';
   var TemperaturesCollection = Backbone.Collection.extend ({ 
 
       //define instances
-      model : TemperatureModel,
+      model : TempAlarmModel,
       url: Common.ApiUrl + '/temperatures',
 
       /**

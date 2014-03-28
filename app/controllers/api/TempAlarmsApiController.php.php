@@ -60,18 +60,25 @@ class TempAlarmsApiController extends \Controller
 	 */
 	public function update($id)
 	{
-		//
-	}
+    try
+    {
+      $input = json_decode(json_encode(Input::all()));
+      return \TempAlarm::amend($input);
+    }
+    catch (Exception $e)
+    {
+      return JsonHandler::raiseError ($e->getMessage(), 404);
+    }
+  }
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
-
+  /**
+   * Remove the specified resource from storage.
+   *
+   * @param  int  $id
+   * @return Response
+   */
+  public function destroy($id)
+  {
+    //
+  }
 }

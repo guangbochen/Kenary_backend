@@ -1,0 +1,27 @@
+
+<td>
+  <a href="#/temperatures/alarms/<%=alarm.id%>/edit">
+    <button class="btn btn-warning">
+      <i class="fa fa-edit"></i> Edit
+    </button>
+  </a>
+</td>
+<td><%=alarm.id%></td>
+<td><%=alarm.temperature_c%>°C</td>
+<td><%=alarm.minus_threshold%>°C</td>
+<td><%=alarm.plus_threshold%>°C</td>
+<td><%=alarm.created_at%></td>
+
+<td class="warning"><center>Yes</center></td>
+
+<%if (alarm.is_active == '1') {%>
+<td class="success"><center>Yes</center></td>
+<%} else {%>
+<td class="danger"><center>No</center></td>
+<%} %>
+
+<%if (alarm.is_solved == '1') {%>
+<td class="success"><center>Yes</center></td>
+<%} else {%>
+<td class="danger"><center>No</center></td>
+<%} %>

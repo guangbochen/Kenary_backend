@@ -19,7 +19,8 @@
     "jquery-maskedinputs"      : "latest",
     "fancybox"                 : "latest",
     "d3"                       : "latest",
-    "nvd3"                     : "~1.1.15-beta"
+    "nvd3"                     : "~1.1.15-beta",
+    "pubnub": "*"
 
   }
 }

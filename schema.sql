@@ -14,14 +14,14 @@ CREATE TABLE IF NOT EXISTS temperatures(
 );
 
 INSERT INTO temperatures (id, temperature_c, minus_threshold, plus_threshold, is_alarm, created_at, updated_at) VALUES
-(1, 20, -10, 40, 0, NOW(), NOW()),
-(2, 22, -10, 40, 0, NOW(), NOW()),
-(3, -24, -10, 40, 1, NOW(), NOW()),
-(4, 26, -10, 40, 0, NOW(), NOW()),
-(5, 10, -10, 40, 0, NOW(), NOW()),
-(6, 30, -10, 40, 0, NOW(), NOW()),
-(7, 42, -10, 40, 1, NOW(), NOW()),
-(8, 26, -10, 40, 0, NOW(), NOW());
+(1, 20, -10, 40, 0, '2014-03-28 07:00:00', '2014-03-28 07:00:00'),
+(2, 22, -10, 40, 0, '2014-03-28 08:00:00', '2014-03-28 08:00:00'),
+(3, -24, -10, 40, 1, '2014-03-28 09:00:00', '2014-03-28 09:00:00'),
+(4, 26, -10, 40, 0, '2014-03-28 10:00:00', '2014-03-28 10:00:00'),
+(5, 10, -10, 40, 0, '2014-03-28 11:00:00', '2014-03-28 11:00:00'),
+(6, 30, -10, 40, 0, '2014-03-28 12:00:00', '2014-03-28 12:00:00'),
+(7, 42, -10, 40, 1, '2014-03-28 13:00:00', '2014-03-28 13:00:00'),
+(8, 26, -10, 40, 0, '2014-03-28 14:00:00', '2014-03-28 14:00:00');
 
 CREATE TABLE IF NOT EXISTS temp_alarms(
     id              INTEGER NOT NULL AUTO_INCREMENT,
@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS temp_alarms(
     minus_threshold DOUBLE NULL,
     plus_threshold  DOUBLE NULL,
     description     VARCHAR(255) NULL,
+    snapshot_url    VARCHAR(255) NULL,
     is_active       TINYINT(1) NOT NULL DEFAULT 0,
     is_solved       TINYINT(1) NOT NULL DEFAULT 0,
     created_at      TIMESTAMP NULL,
@@ -40,9 +41,12 @@ CREATE TABLE IF NOT EXISTS temp_alarms(
         ON UPDATE CASCADE
 );
 
-INSERT INTO temp_alarms (id, temperature_id, temperature_c, minus_threshold, plus_threshold, description, is_active, is_solved, created_at, updated_at) VALUES
-(1, 3, -24, -10, 40, 'The temp. is lower than minimun temperature threshold', 1, 1, NOW(), NOW()),
-(2, 7, 42, -10, 40, 'The temp. is higher than maximun temperature threshold', 1, 1, NOW(), NOW());
+INSERT INTO temp_alarms (id, temperature_id, temperature_c, minus_threshold, plus_threshold, 
+  description, snapshot_url, is_active, is_solved, created_at, updated_at) VALUES
+(1, 3, -24, -10, 40, 'The temp. is lower than minimun temperature threshold', 
+  'http://raspberrypi.dev/uploads/snapshot1.jpg', 1, 0, '2014-03-28 09:00:00', '2014-03-28 09:00:00'),
+(2, 7, 42, -10, 40, 'The temp. is higher than maximun temperature threshold', 
+  'http://raspberrypi.dev/uploads/snapshot2.jpg', 1, 0, '2014-03-28 13:00:00', '2014-03-28 13:00:00');
 
 
 CREATE TABLE IF NOT EXISTS noises(

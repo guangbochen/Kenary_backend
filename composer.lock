@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "b4491d31cfce325e206c944722f00019",
+    "hash": "4267b0f687dafc6ee2b3deca33c20103",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -737,6 +737,59 @@
             "time": "2014-01-18 15:33:09"
         },
         {
+            "name": "pubnub/pubnub",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pubnub/php-composer.git",
+                "reference": "ab4aa92cc262520f6857252f709a3a44c608e2fa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pubnub/php-composer/zipball/ab4aa92cc262520f6857252f709a3a44c608e2fa",
+                "reference": "ab4aa92cc262520f6857252f709a3a44c608e2fa",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Pubnub\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dmitry Medvedev",
+                    "email": "gektor1@gmail.com"
+                },
+                {
+                    "name": "Victor Kislichenko",
+                    "email": "dofer@bigmir.net"
+                },
+                {
+                    "name": "PubNub Support",
+                    "email": "support@pubnub.com"
+                }
+            ],
+            "description": "The Only Global Network For Real-Time Data -- PubNub!",
+            "homepage": "http://www.pubnub.com/",
+            "keywords": [
+                "ajax",
+                "api",
+                "push",
+                "real time",
+                "real-time",
+                "realtime"
+            ],
+            "time": "2013-07-16 21:18:27"
+        },
+        {
             "name": "stack/builder",
             "version": "dev-master",
             "source": {
@@ -844,12 +897,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/BrowserKit.git",
-                "reference": "a2b2aff53640fd2fa34b7c176f46d8ff392a785d"
+                "reference": "1f5e42db799e05e85d03fe8504c5b1c92c46968d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/BrowserKit/zipball/a2b2aff53640fd2fa34b7c176f46d8ff392a785d",
-                "reference": "a2b2aff53640fd2fa34b7c176f46d8ff392a785d",
+                "url": "https://api.github.com/repos/symfony/BrowserKit/zipball/1f5e42db799e05e85d03fe8504c5b1c92c46968d",
+                "reference": "1f5e42db799e05e85d03fe8504c5b1c92c46968d",
                 "shasum": ""
             },
             "require": {
@@ -892,7 +945,7 @@
             ],
             "description": "Symfony BrowserKit Component",
             "homepage": "http://symfony.com",
-            "time": "2014-03-12 18:29:58"
+            "time": "2014-03-27 14:53:17"
         },
         {
             "name": "symfony/console",
@@ -1332,12 +1385,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpKernel.git",
-                "reference": "f1c3db26afca1bd7709668b302a9c81e04103eb6"
+                "reference": "7cfb85005383ba5b0a11154b1de5d4b5e8a8e40b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/f1c3db26afca1bd7709668b302a9c81e04103eb6",
-                "reference": "f1c3db26afca1bd7709668b302a9c81e04103eb6",
+                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/7cfb85005383ba5b0a11154b1de5d4b5e8a8e40b",
+                "reference": "7cfb85005383ba5b0a11154b1de5d4b5e8a8e40b",
                 "shasum": ""
             },
             "require": {
@@ -1396,7 +1449,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "http://symfony.com",
-            "time": "2014-03-26 11:35:33"
+            "time": "2014-03-27 14:53:17"
         },
         {
             "name": "symfony/process",
@@ -2104,6 +2157,7 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
+        "pubnub/pubnub": 20,
         "way/generators": 20
     },
     "platform": [

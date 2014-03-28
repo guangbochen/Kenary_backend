@@ -6,10 +6,12 @@ define ([
     'collections/temperatures',
     'views/home/index',
     'views/temperatures/index',
+    'views/temperatures/_editAlarm',
     'views/noises/index',
     'views/airs/index',
 
-], function ($, _, Backbone, TemperaturesCollection, HomeView, TemperaturesView, NoisesView, AirsView) {
+], function ($, _, Backbone, TemperaturesCollection, 
+  HomeView, TemperaturesView, EditTempAlarmView, NoisesView, AirsView) {
     'use strict';
 
     var AppRouter = Backbone.Router.extend ({
@@ -18,6 +20,7 @@ define ([
         routes: {
             ''            : 'index',
             'temperatures' : 'temperatures',
+            'temperatures/alarms/:id/edit': 'editTempAlarm',
             'noises'      : 'noises',
             'airs'        : 'airs',
         },
@@ -36,7 +39,15 @@ define ([
 
         temperatures: function () {
           this.showView (new TemperaturesView ({
-            collection: this.temperaturesCollection
+            collection: this.temperaturesCollection,
+          }));
+          this.activeSidebar($('#view-temperatures'));
+        },
+
+        editTempAlarm: function (id) {
+          this.showView (new EditTempAlarmView ({
+            id: id,
+            collection: this.temperaturesCollection,
           }));
           this.activeSidebar($('#view-temperatures'));
         },

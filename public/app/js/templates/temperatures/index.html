@@ -1,4 +1,5 @@
 <div class="row">
+
   <h3 class="page-header">
     <span class="fa-stack fa-lg">
       <i class="fa fa-circle fa-stack-2x"></i>
@@ -12,11 +13,32 @@
     </a>
   </h3> 
 
-  <!-- CHARTS -->
+  <!-- temp linear chart -->
   <header>
-    <h4>Temperature Trends in <%=date%> </h4>
+    <h4 class="temp_header">
+      <i class="fa fa-sort-amount-desc"></i> Temperature Trends in <%=date%> 
+    </h4>
   </header>
-  <br/>
   <div id="chartContainer" style="width: 100%; height: 450px;"></div>
 
+  <!-- temp alarms table -->
+  <div class="col-md-10 table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th style="width: 60px">Manage</th>
+          <th>ID</th>
+          <th>Temperature </th>
+          <th>Plus Threshold</th>
+          <th>Minus Threshold</th>
+          <th>Created at</th>
+          <th><center>Alarm</center></th>
+          <th><center>Actived</center></th>
+          <th><center>Solved</center></th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
 </div>
