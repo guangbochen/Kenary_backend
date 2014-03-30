@@ -1,21 +1,47 @@
-## Laravel PHP Framework
+## UTS Kenari backend 
 
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/version.png)](https://packagist.org/packages/laravel/framework) [![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.png)](https://packagist.org/packages/laravel/framework) [![Build Status](https://travis-ci.org/laravel/framework.png)](https://travis-ci.org/laravel/framework)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.
 
-Laravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we've attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.
+Root API: <a href="http://kenari-printee.rhcloud.com/api">kenari-printee.rhcloud.com/api</a>
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+###1.0 Temperatures(GET)
 
-## Official Documentation
+/temperatures : get all the temperatures
+        
+/temperatures/id : get a specific temperature by id
 
-Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs).
+###2.0 Temperatures(POST)
 
-### Contributing To Laravel
+  <h5>2.1 post non-alarm temperature</h5>
+  
+      {
+        temperature_c: 22,
+        minus_threshold: -10,
+        plus_threshold: 40,
+        is_alarm: 0
+      }
 
-**All issues and pull requests should be filed on the [laravel/framework](http://github.com/laravel/framework) repository.**
-
-### License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+  <h5>2.2 post alarm temperature</h5>
+  
+      {
+        temperature_c: -24,
+        minus_threshold: -10,
+        plus_threshold: 40,
+        is_alarm: 1,
+        description: "The temp. is lower than minimun temperature threshold",
+        snapshot_url: "http://i3.mirror.co.uk/incoming/article1552684.ece/ALTERNATES/s2197/Warehouse+fire",
+        is_active: 1
+      }
+      
+      ## Description:
+      temperature_c: int temperature calculated with celsius (°C),
+      minus_threshold: int value,
+      plus_threshold:  int value,
+      is_alarm: always 1,
+      description: string (not requried, can be empty string),
+      snapshot_url: string (hash image into base64),
+      is_active: 1 indicates alarm is actived, 0 indicates alarm is not actived,
+      
+      
+      
+      
