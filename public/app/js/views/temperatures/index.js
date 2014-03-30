@@ -19,6 +19,7 @@ define ([
        * constructor
        */
       initialize: function (options) {
+
         _.bindAll (this, 'drawLineChart', 'render');
         this.d3 = d3.select(this.el);
         this.date = new Date().toJSON().slice(0,10);

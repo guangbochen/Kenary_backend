@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>UTS Raspbery Pi</title>
+  <title>UTS Kenari Pi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="/app/css/main.css" rel="stylesheet">
 </head>
@@ -16,7 +16,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">UTS Raspberry Pi Admin</a>
+      <a class="navbar-brand" href="#">UTS Kenari Pi Admin</a>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">

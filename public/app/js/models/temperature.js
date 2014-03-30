@@ -7,7 +7,7 @@ define ([
   'use strict';
 
   // add temprature model
-  var TempAlarmModel = Backbone.Model.extend ({
+  var TemperatureModel = Backbone.Model.extend ({
     urlRoot: Common.ApiUrl + '/temperatures/alarms',
 
     initialize: function(){
@@ -22,5 +22,5 @@ define ([
     },
   }); 
 
-  return TempAlarmModel;
+  return TemperatureModel;
 });

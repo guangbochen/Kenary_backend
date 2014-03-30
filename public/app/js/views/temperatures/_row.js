@@ -27,7 +27,7 @@ define ([
         render: function () {
 
             this.$el.html (this.template ({ 
-                alarm : this.temp.attributes.alarm,
+              alarm : this.temp.attributes.alarm,
             }));
             return this;
         },

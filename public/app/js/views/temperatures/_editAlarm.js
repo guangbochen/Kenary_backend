@@ -4,7 +4,7 @@ define ([
     'jquery',
     'underscore',
     'backbone',
-    'models/tempAlarm',
+    'models/temperature',
     'text!templates/temperatures/_editAlarm.html',
     'alertify',
     'switch',
@@ -12,7 +12,7 @@ define ([
     // 'ladda',
     // 'spin',
 
-], function ($, _, Backbone, TempAlarmModel, EditTempAlarmTemplate, alertify) {
+], function ($, _, Backbone, TemperatureModel, EditTempAlarmTemplate, alertify) {
   'use strict';
 
   var RestaurantView = Backbone.View.extend({
@@ -24,10 +24,10 @@ define ([
        */
       initialize: function (options) {
 
-        this.tempAlarmId = options.id;
-        this.tempAlarmModel = new TempAlarmModel ({id: options.id});
+        this.id = options.id;
+        this.temperature = new TemperatureModel ({id: options.id});
 
-        this.tempAlarmModel.on ('change', this.render, this);
+        this.temperature.on ('change', this.render, this);
       },
 
       events: {
@@ -39,16 +39,15 @@ define ([
         var _this = this;
 
         var $tempAlarm = Backbone.Syphon.serialize (this);
-        console.log($tempAlarm);
 
         //submit form
-        this.tempAlarmModel.save($tempAlarm, {
+        this.temperature.save($tempAlarm, {
           success: function (tempAlarm) {
-            alertify.success('You have saved temperature alarm successfully');
+            alertify.success('You have saved changes successfully');
             _this.collection.fetch ();
           },
           error: function(){
-            alertify.error('Failed to save temperature alarm, Please try again');
+            alertify.error('Failed to save changes, Please try again');
           }
         });
 
@@ -61,12 +60,12 @@ define ([
       render: function () {
 
         var _this = this;
-        this.tempAlarmModel.fetch ({ 
+        this.temperature.fetch ({ 
           success : function(model) {
 
             // Load the compiled HTML template into the Backbone
             _this.$el.html (_this.template({
-              id: _this.tempAlarmId,
+              id: _this.id,
               alarm: model.attributes,
             }));
 
@@ -81,7 +80,7 @@ define ([
       },
 
       onClose: function () {
-        this.tempAlarmModel.off ('change');
+        this.temperature.off ('change');
       },
   });
 

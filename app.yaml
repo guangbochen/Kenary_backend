@@ -1,0 +1,14 @@
+
+application: kenari
+version: 1
+runtime: php
+api_version: 1
+
+handlers:
+
+- url: /admin/(.*)
+  static_files: public/admin\1
+  upload: public/admin/(.*)
+
+- url: /.*
+  script: public/index.php

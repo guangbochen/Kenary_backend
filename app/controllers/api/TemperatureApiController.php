@@ -24,7 +24,8 @@ class TemperatureApiController extends \Controller
   {
     try
     {
-      return \Temperature::find($id);
+      /* return \Temperature::find($id); */
+      return \Temperature::with('alarm')->where('id', '=', $id)->get();
     }
     catch (Exception $e)
     {
