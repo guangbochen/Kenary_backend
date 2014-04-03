@@ -23,13 +23,13 @@ class Temperature extends \Eloquent
     $temperature->temperature_c   = $input->temperature_c;
     $temperature->minus_threshold = $input->minus_threshold;
     $temperature->plus_threshold  = $input->plus_threshold;
-    $temperature->is_alarm         = $input->is_alarm;
+    $temperature->is_alarm        = $input->is_alarm;
     $temperature->created_at      = date('Y-m-d H:i:s', strtotime('now'));
     $temperature->updated_at      = date('Y-m-d H:i:s', strtotime('now'));
     $temperature->save();
 
     //if is alarm make new temp alarm
-    if($input->is_alarm === 1)
+    if( (int)$input->is_alarm === 1 )
     {
       \TempAlarm::make($input, $temperature->id);
     }
@@ -44,7 +44,7 @@ class Temperature extends \Eloquent
     $temperature->temperature_c   = $input->temperature_c;
     $temperature->minus_threshold = $input->minus_threshold;
     $temperature->plus_threshold  = $input->plus_threshold;
-    $temperature->is_alarm         = $input->is_alarm;
+    $temperature->is_alarm        = $input->is_alarm;
     $temperature->updated_at      = date('Y-m-d H:i:s', strtotime('now'));
     $temperature->save();
 

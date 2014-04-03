@@ -33,6 +33,17 @@ class TemperatureApiController extends \Controller
     }
   }
 
+	/**
+	 * Store a newly created resource in storage.
+   *
+   * @return Response
+   */
+  public function store()
+  {
+    $input = json_decode(json_encode(Input::all()));
+    return \Temperature::make(new \Temperature(), $input);
+  }
+
   public function seed()
   {
     $input = array( 

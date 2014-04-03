@@ -5,10 +5,10 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.1.*",
-    "pubnub/pubnub": "dev-master"
+    "pubnub/pubnub": "dev-master",
+    "way/generators": "dev-master"
 	},
   "require-dev": {
-    "way/generators": "dev-master",
     "phpunit/phpunit": "3.7.*",
     "mockery/mockery": "0.7.*"
   },
@@ -39,5 +39,5 @@
 	"config": {
 		"preferred-install": "dist"
 	},
-	"minimum-stability": "dev"
+	"minimum-stability": "stable"
 }

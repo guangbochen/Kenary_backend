@@ -1,7 +1,5 @@
 <?php
 
-define('DB_HOST', getenv('OPENSHIFT_MYSQL_DB_HOST'));
-
 return array(
 
 	/*
@@ -64,17 +62,6 @@ return array(
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
     ),
-
-		/* 'mysql' => array( */
-		/* 	'driver'    => 'mysql', */
-		/* 	'host'      => DB_HOST, */
-		/* 	'database'  => 'kenari', */
-		/* 	'username'  => 'adminFs18cxK', */
-		/* 	'password'  => 'WCtA7ilvvAfq', */
-		/* 	'charset'   => 'utf8', */
-		/* 	'collation' => 'utf8_unicode_ci', */
-		/* 	'prefix'    => '', */
-		/* ), */
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',

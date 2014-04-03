@@ -1,0 +1,15 @@
+#!/bin/bash
+# Run composer install
+
+cd app-root/runtime/repo/php
+
+export HOME_ORIGIN=$HOME
+export HOME=$HOME/app-root/runtime/repo/php
+
+cd $OPENSHIFT_REPO_DIR
+curl -sS https://getcomposer.org/installer | php
+php composer.phar install --prefer-source --no-interaction --no-dev
+php composer.phar dump-autoload
+# /usr/bin/php composer.phar install
+
+export HOME=$HOME_ORIGIN
