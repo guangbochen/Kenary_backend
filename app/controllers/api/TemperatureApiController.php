@@ -48,8 +48,8 @@ class TemperatureApiController extends \Controller
 
   public function seed()
   {
-    /* $temp = rand(-20, 70); */
-    $temp = rand(-30, -50);
+    $temp = rand(-20, 70);
+    /* $temp = rand(-30, -50); */
     $input = array();
 
     if($temp<40 && $temp > -10){

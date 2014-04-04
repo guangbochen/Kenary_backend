@@ -3,5 +3,6 @@ vendor
 .DS_Store
 Thumbs.db
 tags
+composer.lock
 
 !php/app/dist/js/vendor/

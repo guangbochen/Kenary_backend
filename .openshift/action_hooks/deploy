@@ -8,7 +8,7 @@ export HOME=$HOME/app-root/runtime/repo/php
 
 cd $OPENSHIFT_REPO_DIR
 curl -sS https://getcomposer.org/installer | php
-php composer.phar install --prefer-source --no-interaction --no-dev
+php composer.phar install --prefer-source --no-interaction --no-require-dev
 php composer.phar dump-autoload
 # /usr/bin/php composer.phar install
 
