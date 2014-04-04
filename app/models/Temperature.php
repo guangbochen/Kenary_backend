@@ -32,6 +32,12 @@ class Temperature extends \Eloquent
     if( (int)$input->is_alarm === 1 )
     {
       \TempAlarm::make($input, $temperature->id);
+
+      $input_array = get_object_vars($input);
+      Mail::send('emails.tempAlarm', $input_array, function($message) {
+        $message->to('steven.guangbo.chen@gmail.com', 'Guangbo Chen')
+          ->subject('UTS Kenari Alarm');
+      });
     }
 
     return $temperature;
@@ -50,5 +56,5 @@ class Temperature extends \Eloquent
 
     return $temperature;
   }
- 
+
 }

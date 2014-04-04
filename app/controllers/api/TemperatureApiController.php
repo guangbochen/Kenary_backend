@@ -41,20 +41,39 @@ class TemperatureApiController extends \Controller
   public function store()
   {
     $input = json_decode(json_encode(Input::all()));
+    $pubnub = new \Pubnub;
+    $pubnub::sendMessage(Input::all());
     return \Temperature::make(new \Temperature(), $input);
   }
 
   public function seed()
   {
-    $input = array( 
-      'temperature_c' => 62,
-      'minus_threshold' => -10,
-      'plus_threshold' => 40,
-      'is_alarm' => 1,
-      'is_active' => 1,
-      'description' => ' Warning... needs fire assist immediately',
-      'snapshot_url' => "http://raspberrypi.dev/uploads/snapshot3.jpg",
-    );
+    /* $temp = rand(-20, 70); */
+    $temp = rand(-30, -50);
+    $input = array();
+
+    if($temp<40 && $temp > -10){
+      $input = array( 
+        'temperature_c' => $temp,
+        'minus_threshold' => -10,
+        'plus_threshold' => 40,
+        'is_alarm' => 0,
+      );
+    }
+    else{
+      $input = array( 
+        'temperature_c' => $temp,
+        'minus_threshold' => -10,
+        'plus_threshold' => 40,
+        'is_alarm' => 1,
+        'is_active' => 1,
+        'description' => 'Warning... needs temperature assist immediately',
+        'snapshot_url' => 'http://raspberrypi.dev/uploads/snapshot3.jpg',
+      );
+    }
+
+    $pubnub = new \Pubnub;
+    $pubnub::sendMessage($input);
 
     $input = json_decode(json_encode($input));
     return \Temperature::make(new \Temperature(), $input);

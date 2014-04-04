@@ -4,7 +4,7 @@ define ([
 
 ], function () {
     return {
-        ApiUrl: 'http://raspberrypi.dev/api',
+        ApiUrl: '/api',
     };
 
 });

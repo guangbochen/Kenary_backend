@@ -7,8 +7,11 @@ define ([
     'collections/temperatures',
     'views/temperatures/_row',
     'alertify',
+    'pubnub',
     'd3', 'nvd3',
-], function (_, Backbone, TemperaturesTemplate, TemperaturesCollection, TempRowView, alertify) {
+    'bootstrap',
+
+], function (_, Backbone, TemperaturesTemplate, TemperaturesCollection, TempRowView, alertify, Pubnub) {
   'use strict';
 
   var TemperaturesView = Backbone.View.extend({
@@ -30,10 +33,37 @@ define ([
         if (this.collection.length == 0) {
           this.collection.fetch ();
         }
+
+        this.listenToPubnub();
       },
 
       events: { 
         'click #refresh': 'refresh',
+      },
+
+      /**
+       * this function trigger action when pubnub pushes notification
+       * TODO move the function into pubnub.js file and trigger alarm event
+       */
+      listenToPubnub : function () {
+        var _this = this;
+
+        Pubnub.subscribe({ 
+          channel : 'kenari',
+          message: function(message) { 
+            _this.collection.fetch();
+
+            //notify user when the notification is a alarm
+            if(message.is_alarm == 1){
+              $('#modal-temp').html(message.temperature_c);
+              $('#modal-desc').html(message.description);
+              $('#modal-actived').html(message.is_active);
+              // $('#modal-solved').html(message.is_solved);
+              // $('#modal-created').html(message.created_at);
+              $('#tempAlarmModal').modal('toggle');
+            }
+          }
+        });
       },
 
       refresh : function () {
@@ -59,9 +89,9 @@ define ([
         nv.addGraph(function() {  
           var chart = nv.models.lineChart()
           .options ({
-            showXAxis: true,
+            showXAxis: false,
             showYAxis: true,
-            showLegend: false,
+            showLegend: true,
             transitionDuration: 250,
             tooltipContent: function (key, x, y, e, graph) {
 
@@ -69,6 +99,10 @@ define ([
               var is_alarm = '<span class="label label-success"> Normal </span>';
               if(e.point.is_alarm === 1) {
                 is_alarm = '<span class="label label-danger"> Alarm </span>';
+              }
+
+              if(key != 'Temperature'){
+                return '<span class="threshold">' + e.series.key + '</span>';
               }
 
               return '<h3><strong>' + key + '</strong> ' + is_alarm + ' </h3>' 
@@ -111,15 +145,31 @@ define ([
 
       numberOfNewCustomer: function() {
         var tempArray = [],
-            i=1;
+        maxThreshold = [],
+        minThreshold = [],
+        i=1;
 
-        // append temp into temp array
         this.collection.each (function (temp) {
+
+          var x_value = i++;
+          // push temp value into temp array
           tempArray.push({ 
-            x: i++, 
+            x: x_value,
             y: temp.attributes.temperature_c, 
             date: temp.attributes.created_at,
             is_alarm: temp.attributes.is_alarm,
+          });
+
+          // push max threshold temp value into array
+          maxThreshold.push({ 
+            x: x_value,
+            y: temp.attributes.plus_threshold, 
+          });
+
+          // push min threshold temp value into array
+          minThreshold.push({ 
+            x: x_value, 
+            y: temp.attributes.minus_threshold, 
           });
 
           //apend temp alarm to temp alarm table
@@ -128,11 +178,23 @@ define ([
           }
         }, this);
 
-        return [{
+        return [
+        {
+          values: minThreshold,
+            key: 'Min Threshold',
+            color: '#93BCE0'
+        },
+        {
+          values: maxThreshold,
+          key: 'Max Threshold',
+          color: '#FFBF01'
+        },
+        {
           values: tempArray,
-            key: 'Temperature',
-            color: "#F3441F"
-        }];
+          key: 'Temperature',
+          color: "#F3441F"
+        },
+        ];
       },
 
       renderTempAlarms : function(temp) {

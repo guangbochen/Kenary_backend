@@ -9,6 +9,8 @@
 /* @import url("../js/vendor/jt.timepicker/jquery.timepicker.css"); */
 /* @import url("../js/vendor/fancybox/source/jquery.fancybox.css"); */
 
+@import url("temperature.css");
+
 /*
  * Base structure
  */
@@ -178,26 +180,24 @@ a:hover {
   font-size: 14px ;
 }
 
-/* css for temp */
-.temp_header {
-  padding-left: 25px;
+.modal-body {
+  padding-bottom: 0px !important;
+  margin-bottom: 0px !important;
 }
 
-.form-actions {
-  padding: 30px 20px 10px 20px;
-  margin-top: 20px;
-  background:#F5F5F5;
+.modal-alarm {
+  width: 150px;
+  height: 200px;
+}
+.modal-snapshot {
+  width: 320px;
+  height: 180px;
 }
 
-.alarm-header {
-  border-bottom: 0px !important;
-}
-
-.alarm-title {
-  margin-top: -30px;
-  margin-bottom: -20px;
-}
-
-.label {
+blockquote {
   font-size: 14px;
+  border-left: 3px solid #455162;
 }
+
+
+
