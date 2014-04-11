@@ -123,3 +123,35 @@
   <!-- end of form action section -->
 </form>
 
+<!-- Modal -->
+<div class="modal fade in" id="tempAlarmModal" tabindex="-1" role="dialog" aria-labelledby="alarmModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="alarmModalLabel">Alarm Notification</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="img/alarm.gif" alt="Alarm" class="modal-alarm">
+          </div>
+          <div class="col-md-8">
+            <blockquote>
+              <p> <strong>Alarm Temperature: </strong> <span id="modal-temp"></span>°C</p>
+              <p> <strong>Is Actived: </strong> <span id="modal-actived"></span> </p>
+              <p> <strong>Is Solved: </strong> No </p>
+              <p> <strong>Created at: </strong> <span id="modal-created"></span></p>
+              <p> <strong>Description: </strong> <span id="modal-desc"></span></p>
+              <!-- <p> <strong>Snapshot: </strong> </p> -->
+              <!-- <img src="uploads/snapshot1.jpg" alt="" class="modal-snapshot"> -->
+            <!-- </blockquote> -->
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal" id="dismiss-modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>

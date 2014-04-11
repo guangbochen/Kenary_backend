@@ -44,9 +44,9 @@ CREATE TABLE IF NOT EXISTS temp_alarms(
 INSERT INTO temp_alarms (id, temperature_id, temperature_c, minus_threshold, plus_threshold, 
   description, snapshot_url, is_active, is_solved, created_at, updated_at) VALUES
 (1, 3, -24, -10, 40, 'The temp. is lower than minimun temperature threshold', 
-  'http://raspberrypi.dev/uploads/snapshot1.jpg', 1, 0, '2014-03-28 09:00:00', '2014-03-28 09:00:00'),
+  '/uploads/snapshot1.jpg', 1, 0, '2014-03-28 09:00:00', '2014-03-28 09:00:00'),
 (2, 7, 42, -10, 40, 'The temp. is higher than maximun temperature threshold', 
-  'http://raspberrypi.dev/uploads/snapshot2.jpg', 1, 0, '2014-03-28 13:00:00', '2014-03-28 13:00:00');
+  '/uploads/snapshot2.jpg', 1, 0, '2014-03-28 13:00:00', '2014-03-28 13:00:00');
 
 
 CREATE TABLE IF NOT EXISTS noises(

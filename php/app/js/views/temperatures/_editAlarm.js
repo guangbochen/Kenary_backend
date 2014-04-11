@@ -1,7 +1,6 @@
 
 define ([
 
-    'jquery',
     'underscore',
     'backbone',
     'models/temperature',
@@ -12,7 +11,7 @@ define ([
     // 'ladda',
     // 'spin',
 
-], function ($, _, Backbone, TemperatureModel, EditTempAlarmTemplate, alertify) {
+], function ( _, Backbone, TemperatureModel, EditTempAlarmTemplate, alertify) {
   'use strict';
 
   var RestaurantView = Backbone.View.extend({

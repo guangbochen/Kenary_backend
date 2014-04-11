@@ -4,9 +4,8 @@ define ([
     'underscore',
     'backbone',
     'text!templates/home/_row.html',
-    'views/home/_trends',
 
-], function (_, Backbone, TempRowTemplate, HomeTrendsView) {
+], function (_, Backbone, TempRowTemplate) {
     'use strict';
 
     var HomeRowView = Backbone.View.extend({
@@ -19,23 +18,26 @@ define ([
          */
         initialize: function (options) {
             this.data = options;
+            console.log(this.data.temp_status);
+            if(this.data.temp_status === 1 || this.data.noise_status === 1){
+              this.overall_status = 1;
+            }
+            else if(this.data.temp_status === -1 || this.data.noise_status === -1){
+              this.overall_status = -1;
+            }
+            else {
+              this.overall_status = 0;
+            }
         },
-
-        // renderTrendsViews : function () {
-
-        //   for (var i = 0; i < 4; i++) {
-        //     var homeTrendsView = new HomeTrendsView();
-        //     console.log(homeTrendsView.render().el);
-        //     this.$el.find('tbody').append(homeTrendsView.render().el);
-        //   }
-        // },
 
         /**
          * renders the view templates, and update this.el with the new HTML
          */
         render: function () {
+          console.log('resutl = ' + this.overall_status);
           this.$el.html (this.template ({ 
-            data : this.data
+            data : this.data,
+            overall_status: this.overall_status,
           }));
           // this.renderTrendsViews();
 

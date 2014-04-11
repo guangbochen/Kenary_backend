@@ -1,13 +1,56 @@
 
-<td rowspan="2"><%=data.name%></td>
-<td rowspan="2"><%=data.id%></td>
-<td rowspan="2" class="success"> <center>YES</center> </td>
+<td><%=data.name%></td>
+<td><%=data.id%></td>
 
-<td class="success">Avg: <%=data.temp%>°C </td>
+<!-- temperatures status -->
+<%if (data.temp_status === 1) {%>
+<td class="warning danger-blink">
+  <a href="#/temperatures"> <center> Warning <br> Avg: <%=data.temp%>°C </center> </a>
+</td>
+<% }else if (data.temp_status === -1) {%>
+<td class="danger blink">
+  <a href="#/temperatures"> <center> Alarm <br> Avg: <%=data.temp%>°C </center> </a>
+</td>
+<%} else {%>
+<td class="success"> 
+  <a href="#/temperatures"> <center> OK <br> Avg: <%=data.temp%>°C </center> </a>
+</td>
+<%} %>
 
-<td rowspan="2" class="success"><center>YES</center></td>
+<!-- noises status -->
+<%if (data.noise_status === 1) {%>
+<td class="warning danger-blink">
+  <a href="#/noises"> <center> Warning <br> Avg: N/A </center> </a>
+</td>
+<% }else if (data.noise_status === -1) {%>
+<td class="danger blink">
+  <a href="#/noises"> <center> Alarm <br> Avg: N/A </center> </a>
+</td>
+<%} else {%>
+<td class="success">
+  <a href="#/noises"> <center> OK <br> Avg: N/A </center> </a>
+</td>
+<%} %>
 
-<td class="success">Avg: N/A </td>
+<!-- airs status -->
+<td class="success">
+  <a href="#/airs">
+    <center> OK <br> Avg: N/A </center>
+  </a>
+</td>
 
-<td rowspan="2" class="success"><center>YES</center></td>
-<td class="success">Avg: N/A </td>
+<!-- overall status -->
+<%if (overall_status === 1) {%>
+<td class="warning danger-blink">
+  <center><i class="fa fa-exclamation-triangle fa-2x"></i> Warning</center>
+</td>
+<% }else if (overall_status === -1) {%>
+<td class="danger blink">
+  <center><i class="fa fa-bell-o fa-2x"></i> Alarm</center>
+</td>
+<%} else {%>
+<td class="success">
+  <center>OK</center>
+</td>
+<%} %>
+

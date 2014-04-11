@@ -54,27 +54,27 @@ return array(
 			'prefix'   => '',
 		),
 
-		/* 'mysql' => array( */
-		/* 	'driver'    => 'mysql', */
-		/* 	'host'      => 'localhost', */
-		/* 	'database'  => 'raspberry_pi', */
-		/* 	'username'  => 'root', */
-		/* 	'password'  => 'root', */
-		/* 	'charset'   => 'utf8', */
-		/* 	'collation' => 'utf8_unicode_ci', */
-		/* 	'prefix'    => '', */
-    /* ), */
-
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => DB_HOST,
-			'database'  => 'kenari',
-			'username'  => 'adminFs18cxK',
-			'password'  => 'WCtA7ilvvAfq',
+			'host'      => 'localhost',
+			'database'  => 'raspberry_pi',
+			'username'  => 'root',
+			'password'  => 'root',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
-		),
+    ),
+
+		/* 'mysql' => array( */
+		/* 	'driver'    => 'mysql', */
+		/* 	'host'      => DB_HOST, */
+		/* 	'database'  => 'kenari', */
+		/* 	'username'  => 'adminFs18cxK', */
+		/* 	'password'  => 'WCtA7ilvvAfq', */
+		/* 	'charset'   => 'utf8', */
+		/* 	'collation' => 'utf8_unicode_ci', */
+		/* 	'prefix'    => '', */
+		/* ), */
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',

@@ -3,7 +3,10 @@
 <head>
   <meta charset="utf-8">
   <title>UTS Kenari Pi</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,width=device-width,height=device-height,user-scalable=yes" />
+  <!-- <link href="/img/favicon.png" type="image/png" rel="shortcut icon" > -->
+  <!-- <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" > -->
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" >
   <link href="/app/css/main.css" rel="stylesheet">
 </head>
 <body>
@@ -60,6 +63,8 @@
 </div>
 
 <!-- Placed at the end of the document so the pages load faster -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <!-- Load the script "js/main.js" as our entry point -->
 <script data-main="/app/js/main" src="/app/js/vendor/requirejs/require.js"></script>
 </body>

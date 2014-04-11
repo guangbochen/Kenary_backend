@@ -7,7 +7,8 @@ define ([
     'collections/temperatures',
     'views/temperatures/_row',
     'alertify',
-    'pubnub',
+    'views/helpers/pubnub',
+    // 'views/helpers/modal',
     'd3', 'nvd3',
     'bootstrap',
 
@@ -26,7 +27,6 @@ define ([
         _.bindAll (this, 'drawLineChart', 'render');
         this.d3 = d3.select(this.el);
         this.date = new Date().toJSON().slice(0,10);
-
         this.collection.on ('sync reset', this.render, this);
 
         // Fetch only when menus collection is empty
@@ -39,6 +39,11 @@ define ([
 
       events: { 
         'click #refresh': 'refresh',
+        'click .modal-dismiss': 'dismissModal',
+      },
+
+      dismissModal : function () {
+        alert('123');
       },
 
       /**
@@ -60,7 +65,8 @@ define ([
               $('#modal-actived').html(message.is_active);
               // $('#modal-solved').html(message.is_solved);
               // $('#modal-created').html(message.created_at);
-              $('#tempAlarmModal').modal('toggle');
+              // _this.$('#tempAlarmModal').modal('show');
+              $('#abc').click();
             }
           }
         });

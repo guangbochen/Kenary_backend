@@ -1,10 +1,10 @@
 <div class="row">
 
   <h3 class="page-header">
-    <span class="fa-stack fa-lg">
+    <a class="fa-stack fa-lg" href="#">
       <i class="fa fa-circle fa-stack-2x"></i>
-      <i class="fa fa-tint fa-stack-1x fa-inverse "></i> 
-    </span>Temperatures
+      <i class="fa fa-chevron-left fa-stack-1x fa-inverse "></i> 
+    </a>Temperatures
     <!-- refresh button -->
     <a href="#/temperatures" id="refresh">
       <button class="btn btn-inverse">
@@ -43,8 +43,13 @@
   </div>
 </div>
 
+<!-- Button trigger modal -->
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#tempAlarmModal" id="abc">
+  Launch demo modal
+</button>
 <!-- Modal -->
-<div class="modal fade" id="tempAlarmModal" tabindex="-1" role="dialog" aria-labelledby="alarmModalLabel" aria-hidden="true">
+
+<div class="modal fade" id="tempAlarmModal" tabindex="-1" role="dialog" aria-labelledby="alarmModalLabel" aria-hidden="false">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -70,7 +75,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal" id="dismiss-modal">OK</button>
+        <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">OK</button>
       </div>
     </div>
   </div>

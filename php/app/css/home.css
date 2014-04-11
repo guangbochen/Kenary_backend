@@ -1,0 +1,58 @@
+.air-success{
+  background-color: #A6D15C !important;
+}
+
+.air-success:hover{
+  background-color: #93C83B !important;
+}
+
+.noise-success{
+  background-color: #D9EBBC !important;
+}
+
+.noise-success:hover{
+  background-color: #ABD156 !important;
+}
+
+.danger a{
+  color: #fff !important;
+}
+.warning a{
+  color: #fff !important;
+}
+
+.blink{
+  color: #fff;
+  animation: blink 1s steps(5, start) infinite;
+  -webkit-animation: blink 1s steps(5, start) infinite;
+}
+@keyframes blink{
+  to { 
+    background-color: #E44C25; 
+    color: #fff;
+  }
+}
+@-webkit-keyframes blink{
+  to { 
+    background-color: #E44C25; 
+    color: #fff;
+  }
+}
+
+.danger-blink{
+  color: #fff;
+  animation: danger-blink 1s steps(5, start) infinite;
+  -webkit-animation: danger-blink 1s steps(5, start) infinite;
+}
+@keyframes danger-blink{
+  to { 
+    background-color: #F0AD4E; 
+    color: #fff;
+  }
+}
+@-webkit-keyframes danger-blink {
+  to { 
+    background-color: #F0AD4E; 
+    color: #fff;
+  }
+}
