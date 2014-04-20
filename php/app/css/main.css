@@ -4,7 +4,7 @@
 @import url("../js/vendor/alertify.js/themes/alertify.core.css");
 @import url("../js/vendor/alertify.js/themes/alertify.default.css");
 @import url("../js/vendor/bootstrap-switch/build/css/bootstrap3/bootstrap-switch.min.css");
-/* @import url("../js/vendor/parsleyjs/src/parsley.css"); */
+@import url("../js/vendor/parsleyjs/src/parsley.css");
 /* @import url("../js/vendor/ladda/dist/ladda-themeless.min.css"); */
 /* @import url("../js/vendor/jt.timepicker/jquery.timepicker.css"); */
 /* @import url("../js/vendor/fancybox/source/jquery.fancybox.css"); */
@@ -21,6 +21,21 @@
 body {
   padding-top: 50px;
 }
+
+@media (min-width: 980px) {
+  #wrapper .col-md-2 {
+    width: 14%;
+  }
+
+  #wrapper .col-md-offset-2 {
+    margin-left: 14%;
+  }
+
+  #wrapper .col-md-10 {
+    width: 86%;
+  }
+}
+
 .navbar-inverse {
   background-color: #455162;
   border-color: #00749B;
@@ -41,6 +56,22 @@ body {
 /*
  * Global add-ons
  */
+.max-temp {
+  background: #D9534F;
+  color: #fff;
+  border: 1px solid #D9534F;
+}
+
+.min-temp {
+  background: #428BCA;
+  color: #fff;
+  border: 1px solid #428BCA;
+}
+
+.fa-warning {
+  color: #F0AD4E;
+}
+
 a:hover {
   text-decoration: none;
 }

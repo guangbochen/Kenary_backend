@@ -17,7 +17,7 @@ require.config ({
         highcharts : 'vendor/highcharts-release/highcharts',
         highcharts_more : 'vendor/highcharts-release/highcharts-more',
         highcharts_exporting : 'vendor/highcharts-release/modules/exporting',
-        // parsley        : 'vendor/parsleyjs/dist/parsley.min',
+        parsley        : 'vendor/parsleyjs/dist/parsley.min',
         // async          : 'vendor/requirejs-plugins/src/async',
         // ladda          : 'vendor/ladda/dist/ladda.min',
         // spin           : 'vendor/ladda/dist/spin.min',

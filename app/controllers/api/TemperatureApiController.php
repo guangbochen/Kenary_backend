@@ -41,30 +41,36 @@ class TemperatureApiController extends \Controller
   public function store()
   {
     $input = json_decode(json_encode(Input::all()));
+    //if it is alarm then get image value of base 64
+    if( (int)$input->is_alarm === 1 )
+    {
+      $input->image = preg_replace('#^data:image/[^;]+;base64,#', '', Input::get ('image'));
+    }
     $pubnub = new \Pubnub;
-    $pubnub::sendMessage(Input::all());
+    $channel = 'kenari';
+    $pubnub::sendMessage(Input::all(), $channel );
     return \Temperature::make(new \Temperature(), $input);
   }
 
   public function seed()
   {
-    /* $temp = rand(-20, 70); */
-    $temp = rand(-30, -50);
+    $temp = rand(-20, 70);
+    /* $temp = rand(-30, -50); */
     $input = array();
 
     if($temp<40 && $temp > -10){
       $input = array( 
         'temperature_c' => $temp,
-        'minus_threshold' => -10,
-        'plus_threshold' => 40,
+        'min_threshold' => -10,
+        'max_threshold' => 40,
         'is_alarm' => 0,
       );
     }
     else{
       $input = array( 
         'temperature_c' => $temp,
-        'minus_threshold' => -10,
-        'plus_threshold' => 40,
+        'min_threshold' => -10,
+        'max_threshold' => 40,
         'is_alarm' => 1,
         'is_active' => 1,
         'description' => 'Warning... needs temperature assist immediately',

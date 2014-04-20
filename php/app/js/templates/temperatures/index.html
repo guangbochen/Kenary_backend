@@ -1,36 +1,39 @@
-<div class="row">
+<div class="row" id="temperatures">
 
-  <h3 class="page-header">
-    <a class="fa-stack fa-lg" href="#">
-      <i class="fa fa-circle fa-stack-2x"></i>
-      <i class="fa fa-chevron-left fa-stack-1x fa-inverse "></i> 
-    </a>Temperatures
-    <!-- refresh button -->
+  <div class="page-header">
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-home"></i> Overview</a></li>
+      <li class="active">
+      <i class="fa fa-tint"></i> Temperatures
+      </li>
+    </ol>
+  </div> 
+
+  <h4>
+    <i class="fa fa-sort-amount-desc"></i> Temperature Trends in <%=date%> 
     <a href="#/temperatures" id="refresh">
-      <button class="btn btn-inverse">
-        <i class="fa fa-refresh"></i> Refresh
-      </button>
+      <button class="btn btn-inverse"> <i class="fa fa-refresh"></i> Refresh </button>
     </a>
-  </h3> 
+  </h4>
+  <!-- displays temperature linear chart -->
+  <div id="chartContainer" style="width:100%; height: 450px;"></div>
+  <!-- <hr> -->
+  <!-- control panel -->
+  <!-- <div class="col-md-4" id="control-panel"></div> -->
 
-  <!-- temp linear chart -->
-  <header>
-    <h4 class="temp_header">
-      <i class="fa fa-sort-amount-desc"></i> Temperature Trends in <%=date%> 
-    </h4>
-  </header>
-  <div id="chartContainer" style="width: 100%; height: 450px;"></div>
+  <!-- displays temperature PID Control Panel -->
+  <div id="control-panel" class="col-md-3"></div>
 
   <!-- temp alarms table -->
-  <div class="col-md-10 table-responsive">
+  <div class="col-md-9 table-responsive" id="temp-alarms">
     <table class="table table-hover">
       <thead>
         <tr>
-          <th style="width: 60px">Manage</th>
+          <th style="width: 60px">Edit</th>
           <th>ID</th>
           <th>Temperature </th>
-          <th>Plus Threshold</th>
-          <th>Minus Threshold</th>
+          <th>Max Threshold</th>
+          <th>Min Threshold</th>
           <th>Created at</th>
           <th><center>Alarm</center></th>
           <th><center>Actived</center></th>
@@ -44,39 +47,39 @@
 </div>
 
 <!-- Button trigger modal -->
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#tempAlarmModal" id="abc">
-  Launch demo modal
-</button>
+<!-- <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#tempAlarmModal" id="abc"> -->
+<!--   Launch demo modal -->
+<!-- </button> -->
 <!-- Modal -->
 
-<div class="modal fade" id="tempAlarmModal" tabindex="-1" role="dialog" aria-labelledby="alarmModalLabel" aria-hidden="false">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="alarmModalLabel">Alarm Notification</h4>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-md-4">
-            <img src="img/alarm.gif" alt="Alarm" class="modal-alarm">
-          </div>
-          <div class="col-md-8">
-            <blockquote>
-              <p> <strong>Alarm Temperature: </strong> <span id="modal-temp"></span>°C</p>
-              <p> <strong>Is Actived: </strong> <span id="modal-actived"></span> </p>
-              <p> <strong>Is Solved: </strong> No </p>
-              <p> <strong>Created at: </strong> <span id="modal-created"></span></p>
-              <p> <strong>Description: </strong> <span id="modal-desc"></span></p>
-              <!-- <p> <strong>Snapshot: </strong> </p> -->
-              <!-- <img src="uploads/snapshot1.jpg" alt="" class="modal-snapshot"> -->
-            <!-- </blockquote> -->
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">OK</button>
-      </div>
-    </div>
-  </div>
-</div>
+<!-- <div class="modal fade" id="tempAlarmModal" tabindex="-1" role="dialog" aria-labelledby="alarmModalLabel" aria-hidden="false"> -->
+<!--   <div class="modal-dialog"> -->
+<!--     <div class="modal-content"> -->
+<!--       <div class="modal-header"> -->
+<!--         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+<!--         <h4 class="modal-title" id="alarmModalLabel">Alarm Notification</h4> -->
+<!--       </div> -->
+<!--       <div class="modal-body"> -->
+<!--         <div class="row"> -->
+<!--           <div class="col-md-4"> -->
+<!--             <img src="img/alarm.gif" alt="Alarm" class="modal-alarm"> -->
+<!--           </div> -->
+<!--           <div class="col-md-8"> -->
+<!--             <blockquote> -->
+<!--               <p> <strong>Alarm Temperature: </strong> <span id="modal-temp"></span>°C</p> -->
+<!--               <p> <strong>Is Actived: </strong> <span id="modal-actived"></span> </p> -->
+<!--               <p> <strong>Is Solved: </strong> No </p> -->
+<!--               <p> <strong>Created at: </strong> <span id="modal-created"></span></p> -->
+<!--               <p> <strong>Description: </strong> <span id="modal-desc"></span></p> -->
+<!-- <p> <strong>Snapshot: </strong> </p> -->
+<!-- <img src="uploads/snapshot1.jpg" alt="" class="modal-snapshot"> -->
+<!-- </blockquote> -->
+<!--             </div> -->
+<!--           </div> -->
+<!--         </div> -->
+<!--         <div class="modal-footer"> -->
+<!--           <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">OK</button> -->
+<!--         </div> -->
+<!--       </div> -->
+<!--     </div> -->
+<!--   </div> -->

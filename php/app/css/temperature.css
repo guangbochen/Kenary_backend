@@ -1,5 +1,16 @@
+@media (min-width: 980px) {
+  #temperatures .col-md-9 {
+    margin-left: 20px;
+    margin-right: -20px;
+  }
+}
 
 /* css for temp */
+#temperatures .form-group label{
+  font-size: 13px;
+  font-weight: 500;
+}
+
 .temp_header {
   padding-left: 25px;
 }
@@ -10,15 +21,6 @@
   background:#F5F5F5;
 }
 
-.alarm-header {
-  border-bottom: 0px !important;
-}
-
-.alarm-title {
-  margin-top: -30px;
-  margin-bottom: -20px;
-}
-
 .label {
   font-size: 14px;
 }
@@ -26,4 +28,9 @@
 .threshold {
   font-size: 12px;
   padding: 0 5px;
+}
+
+#control-panel, #temp-alarms {
+  border: solid 1px #eee;
+  padding: 15px !important;
 }

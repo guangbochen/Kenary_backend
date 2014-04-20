@@ -16,11 +16,11 @@ class Pubnub
     );
   }
 
-  static function sendMessage ($message)
+  static function sendMessage ($message, $channel)
   {
     //send broadcast notification
     self::$pubnub->publish(array(
-      'channel' => 'kenari', ## REQUIRED Channel to Send
+      'channel' => $channel, ## REQUIRED Channel to Send
       'message' => $message   ## REQUIRED Notification String/Array
     ));
   }

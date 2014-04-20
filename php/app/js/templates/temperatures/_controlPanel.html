@@ -1,0 +1,33 @@
+
+<h4><i class="fa fa-cog"></i> PID Conrol Panel</h4>
+<form id="control-panel-form" data-parsley-validate>
+  <input type="hidden" name="id" value="<%=data.id%>">
+  <div class="form-group">
+    <!-- <div class="col-md-4"> -->
+    <label>Maximum Threshold : </label>
+    <div class="input-group">
+      <input class="form-control" placeholder="Max threshold" value="<%=data.max_threshold%>" name="max_threshold" data-parsley-errors-messages-disabled required data-parsley-type="number">
+      <span class="input-group-addon max-temp">°C</span>
+    </div>
+  </div>
+
+  <!-- set min temp threshold -->
+  <div class="form-group">
+    <label>Minimum Threshold : </label>
+    <div class="input-group">
+      <input class="form-control" placeholder="Min threshold" value="<%=data.min_threshold%>" name="min_threshold" data-parsley-errors-messages-disabled required data-parsley-type="number">
+      <span class="input-group-addon min-temp">°C</span>
+    </div>
+  </div>
+
+  <!-- set cycle time -->
+  <div class="form-group">
+    <label>Cycyle Time : </label>
+    <div class="input-group">
+      <input class="form-control" placeholder="Cycle time" value="<%=data.cycle_time%>" name="cycle_time" data-parsley-errors-messages-disabled required data-parsley-type="number">
+      <span class="input-group-addon">Sec.</span>
+    </div>
+  </div>
+  <button type="submit" class="form-control btn btn-primary" id="save-control-panel">Update changes</button>
+</form>
+<script src="app/js/vendor/parsleyjs/dist/parsley.min"></script>

@@ -32,7 +32,7 @@
 <!-- end of header -->
 
 <div class="container-fluid" data-role="main">
-  <div class="row">
+  <div class="row" id="wrapper">
     <div class="col-sm-3 col-md-2 sidebar">
       <ul class="nav nav-sidebar">
         <li class="active" id="view-index">

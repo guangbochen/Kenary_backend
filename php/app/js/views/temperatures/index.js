@@ -6,13 +6,15 @@ define ([
     'text!templates/temperatures/index.html',
     'collections/temperatures',
     'views/temperatures/_row',
+    'views/temperatures/_controlPanel',
     'alertify',
     'views/helpers/pubnub',
     // 'views/helpers/modal',
     'd3', 'nvd3',
     'bootstrap',
 
-], function (_, Backbone, TemperaturesTemplate, TemperaturesCollection, TempRowView, alertify, Pubnub) {
+], function (_, Backbone, TemperaturesTemplate, TemperaturesCollection, TempRowView, ControlPanelView,
+  alertify, Pubnub) {
   'use strict';
 
   var TemperaturesView = Backbone.View.extend({
@@ -85,6 +87,9 @@ define ([
           date: this.date,
         }));
         this.drawLineChart();
+
+        var controlPanelView = new ControlPanelView();
+        this.$el.find('#control-panel').append(controlPanelView.render().el);
         return this;
       },
       /**
@@ -169,13 +174,13 @@ define ([
           // push max threshold temp value into array
           maxThreshold.push({ 
             x: x_value,
-            y: temp.attributes.plus_threshold, 
+            y: temp.attributes.max_threshold, 
           });
 
           // push min threshold temp value into array
           minThreshold.push({ 
             x: x_value, 
-            y: temp.attributes.minus_threshold, 
+            y: temp.attributes.min_threshold, 
           });
 
           //apend temp alarm to temp alarm table
