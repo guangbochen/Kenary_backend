@@ -34,3 +34,7 @@
   border: solid 1px #eee;
   padding: 15px !important;
 }
+
+#temperatures h4 {
+  color: #455162;
+}

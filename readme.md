@@ -45,13 +45,15 @@ Root API: <a href="http://kenari-printee.rhcloud.com/api">kenari-printee.rhcloud
 ###3.0 Temperature configurations
 
   <h5>3.1 configurations api</h5>
-      /api/temperatures/config/1 - call the url to get temperature configuration
+
+      /api/temperatures/config/1 - call the url to get temperature configuration,
       #cycle_time(int), indicates how often the Kenari will send data to the server.
 
   <h5>3.2 Pubub settings</h5>
-      Channel: kenari-config
+
+      Channel: kenari-config,
       subscribe_key : 'sub-c-077f7902-66ad-11e3-b1d4-02ee2ddab7fe',
-      publish_key: 'pub-c-8021207d-c906-4f21-ac84-7d5773c9255b'
+      publish_key: 'pub-c-8021207d-c906-4f21-ac84-7d5773c9255b',
 
 
 

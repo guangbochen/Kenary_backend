@@ -58,6 +58,7 @@ define ([
         Pubnub.subscribe({ 
           channel : 'kenari',
           message: function(message) { 
+            console.log(message);
             _this.collection.fetch();
 
             //notify user when the notification is a alarm
@@ -68,7 +69,7 @@ define ([
               // $('#modal-solved').html(message.is_solved);
               // $('#modal-created').html(message.created_at);
               // _this.$('#tempAlarmModal').modal('show');
-              $('#abc').click();
+              // $('#abc').click();
             }
           }
         });

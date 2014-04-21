@@ -20,6 +20,8 @@ class Temperature extends \Eloquent
   // Make new temperature model
   public static function make($temperature, $input)
   {
+    /* var_dump($input->image); */
+    /* die(); */
     $temperature->temperature_c = $input->temperature_c;
     $temperature->max_threshold = $input->max_threshold;
     $temperature->min_threshold = $input->min_threshold;

@@ -54,8 +54,8 @@ class TemperatureApiController extends \Controller
 
   public function seed()
   {
-    $temp = rand(-20, 70);
-    /* $temp = rand(-30, -50); */
+    /* $temp = rand(-20, 70); */
+    $temp = rand(-30, -50);
     $input = array();
 
     if($temp<40 && $temp > -10){
@@ -74,14 +74,18 @@ class TemperatureApiController extends \Controller
         'is_alarm' => 1,
         'is_active' => 1,
         'description' => 'Warning... needs temperature assist immediately',
-        'snapshot_url' => 'http://raspberrypi.dev/uploads/snapshot3.jpg',
+        'image' => '',
       );
     }
 
     $pubnub = new \Pubnub;
-    $pubnub::sendMessage($input);
-
+    $channel = 'kenari';
+    $pubnub::sendMessage($input, $channel);
     $input = json_decode(json_encode($input));
+    if( (int)$input->is_alarm === 1 )
+    {
+      $input->image = preg_replace('#^data:image/[^;]+;base64,#', '', $input->image);
+    }
     return \Temperature::make(new \Temperature(), $input);
   }
 

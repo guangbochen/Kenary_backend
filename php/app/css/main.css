@@ -5,6 +5,7 @@
 @import url("../js/vendor/alertify.js/themes/alertify.default.css");
 @import url("../js/vendor/bootstrap-switch/build/css/bootstrap3/bootstrap-switch.min.css");
 @import url("../js/vendor/parsleyjs/src/parsley.css");
+@import url("../js/vendor/FlipClock/compiled/flipclock.css");
 /* @import url("../js/vendor/ladda/dist/ladda-themeless.min.css"); */
 /* @import url("../js/vendor/jt.timepicker/jquery.timepicker.css"); */
 /* @import url("../js/vendor/fancybox/source/jquery.fancybox.css"); */
@@ -66,10 +67,6 @@ body {
   background: #428BCA;
   color: #fff;
   border: 1px solid #428BCA;
-}
-
-.fa-warning {
-  color: #F0AD4E;
 }
 
 a:hover {
@@ -233,4 +230,38 @@ blockquote {
 }
 
 
+/* css for clock */
+.clock {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.flip-clock-wrapper * {
+  -webkit-backface-visibility: visible;
+  -moz-backface-visibility: visible;
+  -ms-backface-visibility: visible;
+  -o-backface-visibility: visible;
+  backface-visibility: visible;
+}
+.flip-clock-wrapper ul li a div div.inn {
+  font-size: 28px; 
+}
 
+.flip-clock-wrapper ul {
+  width: 35px;
+  height: 37px;
+  line-height: 40px;
+}
+
+.flip-clock-divider {
+  width: 18px;
+  height: 50px; 
+}
+
+.flip-clock-label{
+  visibility: hidden;
+}
+
+.flip-clock-dot {
+  width: 7px;
+  height: 7px;
+}

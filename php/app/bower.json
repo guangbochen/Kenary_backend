@@ -21,7 +21,8 @@
     "d3"                       : "latest",
     "nvd3"                     : "~1.1.15-beta",
     "pubnub"                   : "*",
-    "highcharts-release"           : "latest"
+    "highcharts-release"           : "latest",
+    "FlipClock"           : "latest"
 
   }
 }

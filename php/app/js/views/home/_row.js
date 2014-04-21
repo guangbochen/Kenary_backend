@@ -18,7 +18,6 @@ define ([
          */
         initialize: function (options) {
             this.data = options;
-            console.log(this.data.temp_status);
             if(this.data.temp_status === 1 || this.data.noise_status === 1){
               this.overall_status = 1;
             }
@@ -34,7 +33,6 @@ define ([
          * renders the view templates, and update this.el with the new HTML
          */
         render: function () {
-          console.log('resutl = ' + this.overall_status);
           this.$el.html (this.template ({ 
             data : this.data,
             overall_status: this.overall_status,

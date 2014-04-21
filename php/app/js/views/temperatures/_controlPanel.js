@@ -31,12 +31,10 @@ define ([
           e.preventDefault();
           if($('#control-panel-form').parsley().validationResult) { 
             var data = Backbone.Syphon.serialize (this);
-            console.log(data);
             //submit form
             this.tempConfig.save(data, {
               success: function () {
                 alertify.success('You have update changes successfully');
-                // _this.collection.fetch ();
               },
               error: function(){
                 alertify.error('Failed to update changes, Please try again');

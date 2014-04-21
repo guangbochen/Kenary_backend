@@ -23,6 +23,7 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
+        <div class="clock"></div>
         <!-- <li><a><i class="fa fa-power-off"></i> Logout </a> -->
         <!-- </li> -->
       </ul>
