@@ -4,7 +4,8 @@ define ([
     'backbone',
     'text!templates/home/index.html',
     'views/home/_row',
-], function (_, Backbone, HomeTemplate, HomeRowView) {
+    'collections/devices'
+], function (_, Backbone, HomeTemplate, HomeRowView, DevicesCollection) {
   'use strict';
 
   var HomeView = Backbone.View.extend({
@@ -14,7 +15,13 @@ define ([
       /**
        * constructor
        */
-      initialize: function () {
+      initialize: function (options) {
+        this.collection = options.collection;
+        this.collection.on ('sync reset', this.render, this);
+
+        if(this.collection.length == 0){
+          this.collection.fetch();
+        }
       },
 
       events: { },
@@ -23,26 +30,14 @@ define ([
        * renders home table rows view
        */
       renderHomeRows : function() {
+        var _this = this;
 
-        var data = [];
-
-        for (var i = 0; i < 3; i++) {
-          if(i == 2) 
-            var q=-1;
-          else 
-            q = i;
-
-          data ={ 
-            name: 'UTS Building ' + i,
-            id: 'kenari000' + i, 
-            temp: i+26, 
-            temp_status: q,  //0 ok, 1 warning, -1 alarm
-            noise: i+26, 
-            noise_status: 0,  //0 ok, 1 warning, -1 alarm
-          };
-          var homeRowView = new HomeRowView(data);
-          this.$el.find('tbody').append(homeRowView.render().el);
-        }
+        this.collection.each(function(device){
+          var homeRowView = new HomeRowView({
+            device: device,
+          });
+          _this.$el.find('tbody').append(homeRowView.render().el);
+        });
       },
 
       /**
@@ -55,7 +50,9 @@ define ([
         return this;
       },
 
-      onClose: function () { }
+      onClose: function () { 
+        this.collection.off ('sync reset');
+      }
   });
 
   return HomeView;

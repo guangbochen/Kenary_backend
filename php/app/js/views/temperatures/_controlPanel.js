@@ -6,10 +6,10 @@ define ([
     'text!templates/temperatures/_controlPanel.html',
     'models/tempConfig',
     'alertify',
+    'parsley',
     'syphon',
-    // 'parsley'
 
-], function (_, Backbone, ControlPanelTemplate, TempConfigModel, alertify) {
+], function (_, Backbone, ControlPanelTemplate, TempConfigModel, alertify, parsley) {
     'use strict';
 
     var ControlPanelView = Backbone.View.extend({
@@ -24,23 +24,21 @@ define ([
         },
 
         events: {
-          'submit ': 'SaveControlPanel',
+          'submit #control-panel-form': 'SaveControlPanel',
         },
 
         SaveControlPanel : function (e){
           e.preventDefault();
-          if($('#control-panel-form').parsley().validationResult) { 
-            var data = Backbone.Syphon.serialize (this);
-            //submit form
-            this.tempConfig.save(data, {
-              success: function () {
-                alertify.success('You have update changes successfully');
-              },
-              error: function(){
-                alertify.error('Failed to update changes, Please try again');
-              }
-            });
-          };
+          var data = Backbone.Syphon.serialize (this);
+          //submit form
+          this.tempConfig.save(data, {
+            success: function () {
+              alertify.success('You have update changes successfully');
+            },
+            error: function(){
+              alertify.error('Failed to update changes, Please try again');
+            }
+          });
         },
 
         /**

@@ -4,7 +4,7 @@ define ([
     'jquery',
     'backbone',
     'router', 
-    'flipclock', 
+    'views/helpers/clock', 
 
 ], function ($, Backbone, Router) {
 
@@ -27,12 +27,6 @@ define ([
         this.unbind();
         if (this.onClose) this.onClose();
     };
-
-    //set clock at the title
-    var dt = new Date();
-    var time = (dt.getHours()*60 +  dt.getMinutes())*60 + dt.getSeconds();
-    var clock = new FlipClock($('.clock'), time, {
-    });
 
     var initialize = function () {
 

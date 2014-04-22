@@ -101,10 +101,11 @@ define ([
         nv.addGraph(function() {  
           var chart = nv.models.lineChart()
           .options ({
-            showXAxis: false,
+            margin: {left: 75},
+            showXAxis: true,
             showYAxis: true,
             showLegend: true,
-            transitionDuration: 250,
+            transitionDuration: 350,
             tooltipContent: function (key, x, y, e, graph) {
 
               // check whether the temp is alarm or not
@@ -123,7 +124,8 @@ define ([
           });
 
         chart.xAxis
-          .tickFormat(function (d, i) {
+          .axisLabel('Date');
+          // .tickFormat(function (d, i) {
             // return d;
             // switch (d) {
             //   case 1: return 'JAN';
@@ -139,10 +141,11 @@ define ([
             //   case 11: return 'NOV';
             //   case 12: return 'DEC';
             // }
-          })
-        .tickPadding(30);
+          // })
+        // .tickPadding(30);
 
         chart.yAxis
+          .axisLabel('Temperatures (°C)')
           .tickFormat(d3.format(',.2f'));
 
         _this.d3.select('#chartContainer').append('svg')
@@ -166,6 +169,7 @@ define ([
           var x_value = i++;
           // push temp value into temp array
           tempArray.push({ 
+            // x: x_value,
             x: x_value,
             y: temp.attributes.temperature_c, 
             date: temp.attributes.created_at,
@@ -220,5 +224,5 @@ define ([
   });
 
   return TemperaturesView;
-});
+  });
 

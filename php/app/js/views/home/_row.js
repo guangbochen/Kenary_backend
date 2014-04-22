@@ -17,16 +17,16 @@ define ([
          * constructor
          */
         initialize: function (options) {
-            this.data = options;
-            if(this.data.temp_status === 1 || this.data.noise_status === 1){
-              this.overall_status = 1;
-            }
-            else if(this.data.temp_status === -1 || this.data.noise_status === -1){
-              this.overall_status = -1;
-            }
-            else {
+            this.device = options.device;
+            // if(this.device.temp_status === 1 || this.device.noise_status === 1){
+            //   this.overall_status = 1;
+            // }
+            // else if(this.device.temp_status === -1 || this.device.noise_status === -1){
+            //   this.overall_status = -1;
+            // }
+            // else {
               this.overall_status = 0;
-            }
+            // }
         },
 
         /**
@@ -34,11 +34,9 @@ define ([
          */
         render: function () {
           this.$el.html (this.template ({ 
-            data : this.data,
+            device : this.device.attributes,
             overall_status: this.overall_status,
           }));
-          // this.renderTrendsViews();
-
           return this;
         },
 

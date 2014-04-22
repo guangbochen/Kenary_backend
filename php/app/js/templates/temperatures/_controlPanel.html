@@ -6,7 +6,8 @@
     <!-- <div class="col-md-4"> -->
     <label>Maximum Threshold : </label>
     <div class="input-group">
-      <input class="form-control" placeholder="Max threshold" value="<%=data.max_threshold%>" name="max_threshold" data-parsley-errors-messages-disabled required data-parsley-type="number">
+      <input class="form-control" placeholder="Max threshold" value="<%=data.max_threshold%>" name="max_threshold" 
+      required type="number">
       <span class="input-group-addon max-temp">°C</span>
     </div>
   </div>
@@ -15,7 +16,8 @@
   <div class="form-group">
     <label>Minimum Threshold : </label>
     <div class="input-group">
-      <input class="form-control" placeholder="Min threshold" value="<%=data.min_threshold%>" name="min_threshold" data-parsley-errors-messages-disabled required data-parsley-type="number">
+      <input class="form-control" placeholder="Min threshold" value="<%=data.min_threshold%>" name="min_threshold" 
+      required type="number">
       <span class="input-group-addon min-temp">°C</span>
     </div>
   </div>
@@ -24,10 +26,10 @@
   <div class="form-group">
     <label>Cycyle Time : </label>
     <div class="input-group">
-      <input class="form-control" placeholder="Cycle time" value="<%=data.cycle_time%>" name="cycle_time" data-parsley-errors-messages-disabled required data-parsley-type="number">
+      <input class="form-control" placeholder="Cycle time" value="<%=data.cycle_time%>" name="cycle_time" 
+      required type="number">
       <span class="input-group-addon">Sec.</span>
     </div>
   </div>
-  <button type="submit" class="form-control btn btn-primary" id="save-control-panel">Update changes</button>
+  <button type="submit" class="form-control btn btn-primary">Update changes</button>
 </form>
-<script src="app/js/vendor/parsleyjs/dist/parsley.min"></script>

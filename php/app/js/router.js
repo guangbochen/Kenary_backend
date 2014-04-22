@@ -4,14 +4,16 @@ define ([
     'underscore',
     'backbone',
     'collections/temperatures',
+    'collections/devices',
     'views/home/index',
     'views/temperatures/index',
     'views/temperatures/_editAlarm',
     'views/noises/index',
     'views/airs/index',
+    'views/home/_newDevice',
 
-], function ($, _, Backbone, TemperaturesCollection, 
-  HomeView, TemperaturesView, EditTempAlarmView, NoisesView, AirsView) {
+], function ($, _, Backbone, TemperaturesCollection, DevicesCollection, HomeView, TemperaturesView, 
+  EditTempAlarmView, NoisesView, AirsView, NewDeviceView) {
     'use strict';
 
     var AppRouter = Backbone.Router.extend ({
@@ -23,6 +25,7 @@ define ([
             'temperatures/alarms/:id/edit': 'editTempAlarm',
             'noises'      : 'noises',
             'airs'        : 'airs',
+            'devices/new': 'addNewDevice',
         },
 
         /**
@@ -30,10 +33,20 @@ define ([
          */
         initialize: function () {
           this.temperaturesCollection = new TemperaturesCollection();
+          this.devicesCollection = new DevicesCollection();
         },
 
         index: function () {
-          this.showView (new HomeView ());
+          this.showView (new HomeView ({
+            collection: this.devicesCollection,
+          }));
+          this.activeSidebar($('#view-index'));
+        },
+
+        addNewDevice: function () {
+          this.showView (new NewDeviceView ({
+            collection: this.devicesCollection,
+          }));
           this.activeSidebar($('#view-index'));
         },
 

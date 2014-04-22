@@ -18,9 +18,19 @@ Route::get('/', 'HomeController@index');
 Route::group(array('prefix' => 'api'), function()
 {
   Route::get ('/', 'api\IndexApiController@index');
+
   Route::get ('temperatures/seed', 'api\TemperatureApiController@seed');
+
+  //CRDU methods for devices
+  Route::resource('devices', 'api\DevicesApiController');
+
+  //CRDU methods for temperatures configurations
   Route::resource('temperatures/config', 'api\TempConfigApiController');
+
+  //CRDU methods for temperatures alarms
   Route::resource('temperatures/alarms', 'api\TempAlarmsApiController');
+
+  //CRDU methods for temperatures 
   Route::resource('temperatures', 'api\TemperatureApiController');
 });
 
