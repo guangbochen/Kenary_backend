@@ -3,21 +3,22 @@
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-home"></i> Dashboard</a></li>
     <li class="active">
-    <i class="fa fa-plus"></i> Add new device
+    <i class="fa fa-cog"></i> Setting Devices ( <%=device.device_id%> )
     </li>
   </ol>
 </div> 
 
 
 <div class="row devices">
-  <form id="new-device-form" class="form-horizontal" data-parsley-validate>
+  <form id="update-device-form" class="form-horizontal" data-parsley-validate>
     <div class="col-md-6">
       <h4>Device Settings</h4>
+      <input class="hidden" name="id" value="<%=device.id%>">
       <!-- device id -->
       <div class="form-group">
         <label for="id" class="col-sm-4 control-label">Deivce ID :</label>
         <div class="col-sm-8">
-          <input class="form-control device_id" name="device_id" placeholder="Device ID"
+          <input class="form-control" name="device_id" placeholder="Device ID" value="<%=device.device_id%>"
           required>
         </div>
       </div>
@@ -26,7 +27,7 @@
       <div class="form-group">
         <label for="country" class="col-sm-4 control-label">Country :</label>
         <div class="col-sm-8">
-          <input class="form-control" value="Australia" name="country" required>
+          <input class="form-control" value="Australia" name="country" value="<%=device.country%>" required>
         </div>
       </div>
 
@@ -34,7 +35,7 @@
       <div class="form-group">
         <label for="state" class="col-sm-4 control-label">State :</label>
         <div class="col-sm-8">
-          <input class="form-control" placeholder="State" name="state" required>
+          <input class="form-control" placeholder="State" name="state" value="<%=device.state%>"  required>
         </div>
       </div>
 
@@ -42,7 +43,7 @@
       <div class="form-group">
         <label for="city" class="col-sm-4 control-label">City :</label>
         <div class="col-sm-8">
-          <input class="form-control" placeholder="City" name="city" required>
+          <input class="form-control" placeholder="City" name="city" value="<%=device.city%>"  required>
         </div>
       </div>
 
@@ -50,7 +51,7 @@
       <div class="form-group">
         <label for="suburb" class="col-sm-4 control-label">Suburb :</label>
         <div class="col-sm-8">
-          <input class="form-control" placeholder="Suburb" name="suburb" required>
+          <input class="form-control" placeholder="Suburb" name="suburb" value="<%=device.suburb%>"  required>
         </div>
       </div>
 
@@ -58,7 +59,7 @@
       <div class="form-group">
         <label for="address" class="col-sm-4 control-label">Address :</label>
         <div class="col-sm-8">
-          <input class="form-control" placeholder="Address" name="address" required>
+          <input class="form-control" placeholder="Address" name="address" value="<%=device.address%>"  required>
         </div>
       </div>
 
@@ -66,7 +67,7 @@
       <div class="form-group">
         <label for="postcode" class="col-sm-4 control-label">Postcode :</label>
         <div class="col-sm-8">
-          <input class="form-control" placeholder="Postcode" name="postcode" 
+          <input class="form-control" placeholder="Postcode" name="postcode" value="<%=device.postcode%>"  
           required type="number" data-parsley-type="number">
         </div>
       </div>
@@ -75,7 +76,7 @@
       <div class="form-group">
         <label for="position" class="col-sm-4 control-label">Position :</label>
         <div class="col-sm-8">
-          <input class="form-control" placeholder="e.g, Chemical Lab" name="position" required>
+          <input class="form-control" placeholder="e.g, Chemical Lab" name="position" value="<%=device.position%>"  required>
         </div>
       </div>
 
@@ -83,7 +84,7 @@
       <div class="form-group">
         <label for="manager_email" class="col-sm-4 control-label">Email :</label>
         <div class="col-sm-8">
-          <input class="form-control" placeholder="Manager Email" 
+          <input class="form-control" placeholder="Manager Email"  value="<%=device.manager_email%>" 
           name="manager_email" required type="email" data-parsley-type="email">
         </div>
       </div>
@@ -92,19 +93,21 @@
       <div class="form-group">
         <label for="contact_number" class="col-sm-4 control-label">Contact Number :</label>
         <div class="col-sm-8">
-          <input class="form-control contact_number" placeholder="Contact Number" 
-          name="contact_number" required >
+          <input class="form-control contact_number" placeholder="Contact Number" value="<%=device.contact_number%>" 
+          name="contact_number" required>
         </div>
       </div>
     </div>
 
+    <!-- right side of device form -->
     <div class="col-md-6" id="device-right-page">
       <h4>Temperature Settings</h4>
+      <input class="hidden" name="[temp_config]id" value="<%=temp_config.id%>">
       <div class="form-group">
         <label class="col-sm-4 control-label">Maximum Threshold :</label>
         <div class="col-sm-8 input-group">
           <input class="form-control" placeholder="Max threshold" name="[temp_config]max_threshold" 
-          required type="number">
+          value="<%=temp_config.max_threshold%>" required type="number">
           <span class="input-group-addon max-temp">°C</span>
         </div>
       </div>
@@ -114,7 +117,7 @@
         <label class="col-sm-4 control-label">Minimum Threshold :</label>
         <div class="col-sm-8 input-group">
           <input class="form-control" placeholder="Min threshold" name="[temp_config]min_threshold" 
-          required type="number">
+          value="<%=temp_config.min_threshold%>" required type="number">
           <span class="input-group-addon min-temp">°C</span>
         </div>
       </div>
@@ -124,17 +127,18 @@
         <label class="col-sm-4 control-label">Cycyle Time :</label>
         <div class="col-sm-8 input-group">
           <input class="form-control" placeholder="Cycle time" name="[temp_config]cycle_time" 
-          required type="number">
+          value="<%=temp_config.cycle_time%>" required type="number">
           <span class="input-group-addon">Sec.</span>
         </div>
       </div>
 
       <h4>Noise Settings</h4>
+      <input class="hidden" name="[noise_config]id" value="<%=noise_config.id%>">
       <div class="form-group">
         <label class="col-sm-4 control-label">Noise Threshold :</label>
         <div class="col-sm-8 input-group">
-          <input class="form-control" placeholder="Noise threshold" name="[noise_config]max_threshold" 
-          required type="number">
+          <input class="form-control" placeholder="Noise threshold" name="[noise_config]threshold" 
+          value="<%=noise_config.threshold%>" required type="number">
           <span class="input-group-addon">dB</span>
         </div>
       </div>
@@ -144,7 +148,7 @@
         <label class="col-sm-4 control-label">Cycyle Time :</label>
         <div class="col-sm-8 input-group">
           <input class="form-control" placeholder="Cycle time" name="[noise_config]cycle_time" 
-          required type="number">
+          value="<%=noise_config.cycle_time%>" required type="number">
           <span class="input-group-addon">Sec.</span>
         </div>
       </div>
@@ -153,10 +157,10 @@
     <!-- form action section -->
     <div class="col-md-12 form-actions">
       <div class="form-group">
-        <div class="col-sm-offset-5 col-sm-7">
+        <div class="col-sm-offset-4 col-sm-8">
           <a class="btn btn-inverse btn-lg" href="#"> <i class="fa fa-ban"></i> Cancel </a>
-          <button type="submit" class="btn btn-success btn-lg ladda-button" data-style="expand-left">
-            <span class="ladda-label"> <i class="fa fa-check"></i> Add New </span>
+          <button type="submit" class="btn btn-success btn-lg ladda-button" data-style="expand-left" >
+            <span class="ladda-label"> <i class="fa fa-check"></i> Save Changes </span>
           </button>
         </div>
       </div>

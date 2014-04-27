@@ -16,7 +16,7 @@ class DevicesApiController extends \Controller
 	{
     try
     {
-      return Device::all();
+      return Device::with('tempConfig')->with('noiseConfig')->get();
     }
     catch (Exception $e)
     {
@@ -34,7 +34,7 @@ class DevicesApiController extends \Controller
 	{
     try
     {
-      return Device::find($id);
+      return Device::with('tempConfig')->with('noiseConfig')->where('id', '=', $id)->first();
     }
     catch (Exception $e)
     {

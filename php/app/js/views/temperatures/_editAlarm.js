@@ -6,12 +6,12 @@ define ([
     'models/temperature',
     'text!templates/temperatures/_editAlarm.html',
     'alertify',
+    'ladda',
+    'spin',
     'switch',
     'syphon',
-    // 'ladda',
-    // 'spin',
 
-], function ( _, Backbone, TemperatureModel, EditTempAlarmTemplate, alertify) {
+], function ( _, Backbone, TemperatureModel, EditTempAlarmTemplate, alertify, Ladda, Spin) {
   'use strict';
 
   var RestaurantView = Backbone.View.extend({
@@ -36,16 +36,28 @@ define ([
       submitForm : function (e) {
         e.preventDefault();
         var _this = this;
+        var ladda = Ladda.create( document.querySelector( '.ladda-button' ) );
 
         var $tempAlarm = Backbone.Syphon.serialize (this);
 
         //submit form
         this.temperature.save($tempAlarm, {
+          //trigger lodda progress bar
+          beforeSend: function(){
+            ladda.start();
+            var progress = 0;
+            var interval = setInterval( function() {
+              progress = Math.min( progress + Math.random() * 0.1, 1 );
+              ladda.setProgress( progress );
+            }, 300 );
+          },
           success: function (tempAlarm) {
+            ladda.stop();
             alertify.success('You have saved changes successfully');
             _this.collection.fetch ();
           },
           error: function(){
+            ladda.stop();
             alertify.error('Failed to save changes, Please try again');
           }
         });

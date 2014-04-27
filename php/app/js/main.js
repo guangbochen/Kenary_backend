@@ -19,10 +19,10 @@ require.config ({
         highcharts_exporting : 'vendor/highcharts-release/modules/exporting',
         parsley        : 'vendor/parsleyjs/dist/parsley.min',
         flipclock        : 'vendor/FlipClock/compiled/flipclock.min',
+        maskedinput    : 'vendor/jquery-maskedinputs/dist/jquery.maskedinput.min',
+        ladda          : 'vendor/ladda/dist/ladda.min',
+        spin           : 'vendor/ladda/dist/spin.min',
         // async          : 'vendor/requirejs-plugins/src/async',
-        // ladda          : 'vendor/ladda/dist/ladda.min',
-        // spin           : 'vendor/ladda/dist/spin.min',
-        // maskedinput    : 'vendor/jquery-maskedinputs/dist/jquery.maskedinput.min',
         // timepicker     : 'vendor/jt.timepicker/jquery.timepicker.min',
         // fancybox       : 'vendor/fancybox/source/jquery.fancybox.pack',
     }

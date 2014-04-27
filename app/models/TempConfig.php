@@ -13,8 +13,10 @@ class TempConfig extends \Eloquent
   }
 
   // Make new temperature model
-  public static function make($tempConfig, $input)
+  public static function make($input, $device_id)
   {
+    $tempConfig = new \TempConfig();
+    $tempConfig->device_id     = $device_id;
     $tempConfig->max_threshold = $input->max_threshold;
     $tempConfig->min_threshold = $input->min_threshold;
     $tempConfig->cycle_time    = $input->cycle_time;

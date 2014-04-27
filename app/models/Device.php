@@ -12,6 +12,16 @@ class Device extends \Eloquent
     return (boolean) $value;
   }
 
+  public function tempConfig()
+  {
+    return $this->hasOne('TempConfig');
+  }
+
+  public function noiseConfig()
+  {
+    return $this->hasOne('NoiseConfig');
+  }
+
   // Make new device model
   public static function make($input)
   {
@@ -30,6 +40,9 @@ class Device extends \Eloquent
     $device->updated_at     = date('Y-m-d H:i:s', strtotime('now'));
     $device->save();
 
+    \TempConfig::make($input->temp_config, $device->id);
+    \NoiseConfig::make($input->noise_config, $device->id);
+
     return $device;
   }
 
@@ -37,7 +50,7 @@ class Device extends \Eloquent
   public static function amend($id, $input)
   {
     $device = Device::find ($id);
-    /* $device->device_id      = $input->device_id; */
+    $device->device_id      = $input->device_id;
     $device->address        = $input->address;
     $device->suburb         = $input->suburb;
     $device->city           = $input->city;
@@ -48,8 +61,12 @@ class Device extends \Eloquent
     $device->manager_email  = $input->manager_email;
     $device->contact_number = $input->contact_number;
     $device->updated_at     = date('Y-m-d H:i:s', strtotime('now'));
-    $device->save();
 
+    //update associated models
+    \TempConfig::amend($input->temp_config->id, $input->temp_config);
+    \NoiseConfig::amend($input->noise_config->id, $input->noise_config);
+
+    $device->save();
     return $device;
   }
 

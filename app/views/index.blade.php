@@ -37,7 +37,7 @@
     <div class="col-sm-3 col-md-2 sidebar">
       <ul class="nav nav-sidebar">
         <li class="active" id="view-index">
-        <a href="#">Overview</a>
+        <a href="#">Dashboard</a>
         </li>
         <li id="view-temperatures">
         <a href="#/temperatures">Temperatures</a>

@@ -1,3 +1,8 @@
+/* home page global add on */
+.fa-check-circle-o {
+  color: #1D9F75;
+}
+
 .air-success{
   background-color: #A6D15C !important;
 }
@@ -56,3 +61,25 @@
     color: #fff;
   }
 }
+
+.devices {
+  margin-top: -15px;
+}
+
+.devices h4{
+  padding: 10px;
+  color: #455162;
+  background: #F5F5F5;
+}
+
+
+/* css for the right side of the device page */
+#device-right-page .form-group {
+  margin-right: 0px;
+}
+
+span .input-group-addon {
+  height: 34px !important;
+}
+
+

@@ -5,8 +5,11 @@ define ([
     'text!templates/home/_newDevice.html',
     'alertify',
     'parsley',
+    'maskedinput',
     'syphon',
-], function (_, Backbone, NewDeviceTemplate, alertify, parsley) {
+    'ladda',
+    'spin',
+], function (_, Backbone, NewDeviceTemplate, alertify, parsley, mask, Ladda, Spin) {
   'use strict';
 
   var NewDeivceView = Backbone.View.extend({
@@ -33,15 +36,27 @@ define ([
       SubmitAddNewForm : function(e) {
         e.preventDefault();
         var _this = this;
+        var ladda = Ladda.create( document.querySelector( '.ladda-button' ) );
 
         var data = Backbone.Syphon.serialize (this);
         //submit form
         this.collection.create(data, {
+          //trigger lodda progress bar
+          beforeSend: function(){
+            ladda.start();
+            var progress = 0;
+            var interval = setInterval( function() {
+              progress = Math.min( progress + Math.random() * 0.1, 1 );
+              ladda.setProgress( progress );
+            }, 300 );
+          },
           success: function(result) {
+            ladda.stop();
             alertify.success('You have added new device successfully');
             Backbone.history.navigate ('/#', true);
           },
           error: function(){
+            ladda.stop();
             alertify.error('Failed to add new device, Please try again');
           }
         });
@@ -53,6 +68,10 @@ define ([
       render: function () {
         // Load the compiled HTML template into the Backbone
         this.$el.html (this.template());
+
+        //set masked input of input form
+        this.$('.contact_number').mask('999-999-9999');
+        this.$('.device_id').mask('KENARI9999');
         return this;
       },
 

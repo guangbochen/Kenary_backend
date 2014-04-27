@@ -11,9 +11,10 @@ define ([
     'views/noises/index',
     'views/airs/index',
     'views/home/_newDevice',
+    'views/home/_editDevice',
 
 ], function ($, _, Backbone, TemperaturesCollection, DevicesCollection, HomeView, TemperaturesView, 
-  EditTempAlarmView, NoisesView, AirsView, NewDeviceView) {
+  EditTempAlarmView, NoisesView, AirsView, NewDeviceView, EditDeviceView) {
     'use strict';
 
     var AppRouter = Backbone.Router.extend ({
@@ -26,6 +27,7 @@ define ([
             'noises'      : 'noises',
             'airs'        : 'airs',
             'devices/new': 'addNewDevice',
+            'devices/:id/setting': 'editDevice',
         },
 
         /**
@@ -45,6 +47,14 @@ define ([
 
         addNewDevice: function () {
           this.showView (new NewDeviceView ({
+            collection: this.devicesCollection,
+          }));
+          this.activeSidebar($('#view-index'));
+        },
+
+        editDevice: function (id) {
+          this.showView (new EditDeviceView ({
+            id: id,
             collection: this.devicesCollection,
           }));
           this.activeSidebar($('#view-index'));

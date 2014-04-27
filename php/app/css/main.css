@@ -6,7 +6,7 @@
 @import url("../js/vendor/bootstrap-switch/build/css/bootstrap3/bootstrap-switch.min.css");
 @import url("../js/vendor/parsleyjs/src/parsley.css");
 @import url("../js/vendor/FlipClock/compiled/flipclock.css");
-/* @import url("../js/vendor/ladda/dist/ladda-themeless.min.css"); */
+@import url("../js/vendor/ladda/dist/ladda-themeless.min.css");
 /* @import url("../js/vendor/jt.timepicker/jquery.timepicker.css"); */
 /* @import url("../js/vendor/fancybox/source/jquery.fancybox.css"); */
 

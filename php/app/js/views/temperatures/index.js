@@ -124,9 +124,9 @@ define ([
           });
 
         chart.xAxis
-          .axisLabel('Date');
-          // .tickFormat(function (d, i) {
-            // return d;
+          .axisLabel('Date')
+          .tickFormat(function (d, i) {
+            return d;
             // switch (d) {
             //   case 1: return 'JAN';
             //   case 2: return 'FEB';
@@ -141,7 +141,7 @@ define ([
             //   case 11: return 'NOV';
             //   case 12: return 'DEC';
             // }
-          // })
+          });
         // .tickPadding(30);
 
         chart.yAxis

@@ -20,8 +20,39 @@ CREATE TABLE IF NOT EXISTS devices(
 );
 INSERT INTO devices (id, device_id, country, state, city, suburb, address, position, 
   postcode, manager_email, contact_number, created_at, updated_at) VALUES
-(1, 'kenari0001', 'Australia', 'NSW', 'Sydney', 'Ultimo', '15 Broadway', 'Building 5 Lv3 Chemical Lab',
-'2009', '11376860@student.uts.edu.au', '041-111-1111', NOW(), NOW());
+(1, 'KENARI0001', 'Australia', 'NSW', 'Sydney', 'Ultimo', '15 Broadway', 'Building 5 Lv3 Chemical Lab',
+'2009', 'steven.guangbo.chen@gmail.com', '041-111-1111', NOW(), NOW());
+
+CREATE TABLE IF NOT EXISTS temp_configs(
+  id              INTEGER NOT NULL AUTO_INCREMENT,
+  device_id       INTEGER NULL,
+  min_threshold   DOUBLE NULL,
+  max_threshold   DOUBLE NULL,
+  cycle_time      INTEGER NULL,
+  created_at      TIMESTAMP NULL,
+  updated_at      TIMESTAMP NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (device_id) REFERENCES devices(id)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE
+);
+INSERT INTO temp_configs (id, device_id, max_threshold, min_threshold, cycle_time, created_at, updated_at) VALUES
+(1, 1, 40, -10, 10, NOW(), NOW());
+
+CREATE TABLE IF NOT EXISTS noise_configs(
+  id              INTEGER NOT NULL AUTO_INCREMENT,
+  device_id       INTEGER NULL,
+  threshold   DOUBLE NULL,
+  cycle_time      INTEGER NULL,
+  created_at      TIMESTAMP NULL,
+  updated_at      TIMESTAMP NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (device_id) REFERENCES devices(id)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE
+);
+INSERT INTO noise_configs (id, device_id, threshold, cycle_time, created_at, updated_at) VALUES
+(1, 1, 40, 10, NOW(), NOW());
 
 CREATE TABLE IF NOT EXISTS temperatures(
   id              INTEGER NOT NULL AUTO_INCREMENT,
@@ -42,18 +73,6 @@ INSERT INTO temperatures (id, temperature_c, max_threshold, min_threshold, is_al
 (6, 30, 40, -10, 0, '2014-03-28 12:00:00', '2014-03-28 12:00:00'),
 (7, 42, 40, -10, 1, '2014-03-28 13:00:00', '2014-03-28 13:00:00'),
 (8, 26, 40, -10, 0, '2014-03-28 14:00:00', '2014-03-28 14:00:00');
-
-CREATE TABLE IF NOT EXISTS temp_configs(
-  id              INTEGER NOT NULL AUTO_INCREMENT,
-  min_threshold   DOUBLE NULL,
-  max_threshold   DOUBLE NULL,
-  cycle_time      INTEGER NULL,
-  created_at      TIMESTAMP NULL,
-  updated_at      TIMESTAMP NULL,
-  PRIMARY KEY (id)
-);
-INSERT INTO temp_configs (id, max_threshold, min_threshold, cycle_time, created_at, updated_at) VALUES
-(1, 40, -10, 10, NOW(), NOW());
 
 CREATE TABLE IF NOT EXISTS temp_alarms(
   id              INTEGER NOT NULL AUTO_INCREMENT,
