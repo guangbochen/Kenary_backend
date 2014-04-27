@@ -2,6 +2,8 @@
 
 class TempAlarm extends \Eloquent {
 
+  protected $table = 'temp_alarms';
+
   public function temperature()
   {
     return $this->belongsTo('Temperature');

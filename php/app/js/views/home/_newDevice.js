@@ -6,9 +6,9 @@ define ([
     'alertify',
     'parsley',
     'maskedinput',
-    'syphon',
     'ladda',
     'spin',
+    'syphon',
 ], function (_, Backbone, NewDeviceTemplate, alertify, parsley, mask, Ladda, Spin) {
   'use strict';
 

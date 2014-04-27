@@ -7,9 +7,11 @@ define ([
     'models/tempConfig',
     'alertify',
     'parsley',
+    'ladda',
+    'spin',
     'syphon',
 
-], function (_, Backbone, ControlPanelTemplate, TempConfigModel, alertify, parsley) {
+], function (_, Backbone, ControlPanelTemplate, TempConfigModel, alertify, parsley, Ladda, Spin) {
     'use strict';
 
     var ControlPanelView = Backbone.View.extend({
@@ -30,12 +32,25 @@ define ([
         SaveControlPanel : function (e){
           e.preventDefault();
           var data = Backbone.Syphon.serialize (this);
+          var ladda = Ladda.create( document.querySelector( '.ladda-button' ) );
+
           //submit form
           this.tempConfig.save(data, {
+            //trigger lodda progress bar
+            beforeSend: function(){
+              ladda.start();
+              var progress = 0;
+              var interval = setInterval( function() {
+                progress = Math.min( progress + Math.random() * 0.1, 1 );
+                ladda.setProgress( progress );
+              }, 300 );
+            },
             success: function () {
+              ladda.stop();
               alertify.success('You have update changes successfully');
             },
             error: function(){
+              ladda.stop();
               alertify.error('Failed to update changes, Please try again');
             }
           });

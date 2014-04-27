@@ -20,7 +20,14 @@ define ([
       initialize: function () {
       },
 
-      events: { },
+      events: { 
+        'click #refresh': 'refresh',
+      },
+
+      refresh : function () {
+        // this.collection.fetch();
+        // alertify.success('Refreshed temperatures successfully');
+      },
 
       renderHighCharts : function () {
         this.$('#noise-container').highcharts({

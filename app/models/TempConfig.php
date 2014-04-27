@@ -2,6 +2,7 @@
 
 class TempConfig extends \Eloquent 
 {
+  protected $table = 'temp_configs';
   public function getIdAttribute ($value)
   {
     return (int) $value;

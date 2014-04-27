@@ -101,7 +101,7 @@ INSERT INTO temp_alarms (id, temperature_id, temperature_c, min_threshold, max_t
 
 CREATE TABLE IF NOT EXISTS noises(
   id            INTEGER NOT NULL AUTO_INCREMENT,
-  noise_lvl     DOUBLE NULL,
+  loudness      DOUBLE NULL,
   threshold     DOUBLE NULL,
   is_alarm      TINYINT(1) NOT NULL DEFAULT 0,
   created_at    TIMESTAMP NULL,
@@ -112,7 +112,7 @@ CREATE TABLE IF NOT EXISTS noises(
 CREATE TABLE IF NOT EXISTS noise_alarms(
   id              INTEGER NOT NULL AUTO_INCREMENT,
   noise_id        INTEGER NULL,
-  noise_lvl       DOUBLE NULL,
+  loudness        DOUBLE NULL,
   threshold       DOUBLE NULL,
   description     VARCHAR(255) NULL,
   is_active       TINYINT(1) NOT NULL DEFAULT 0,

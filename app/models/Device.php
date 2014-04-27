@@ -2,6 +2,8 @@
 
 class Device extends \Eloquent 
 {
+  protected $table = 'devices';
+
   public function getIdAttribute ($value)
   {
     return (int) $value;

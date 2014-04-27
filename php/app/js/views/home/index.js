@@ -47,6 +47,7 @@ define ([
         // Load the compiled HTML template into the Backbone
         this.$el.html (this.template());
         this.renderHomeRows();
+        this.$('.tips').tooltip();
         return this;
       },
 
