@@ -1,0 +1,26 @@
+
+<h4><i class="fa fa-cog"></i> Noises Conrol Panel</h4>
+<form id="control-panel-form" data-parsley-validate>
+  <input type="hidden" name="id" value="<%=noise_config.id%>">
+  <div class="form-group">
+    <!-- <div class="col-md-4"> -->
+    <label>Loudness Threshold : </label>
+    <div class="input-group">
+      <input class="form-control" placeholder="Threshold" value="<%=noise_config.threshold%>" name="threshold" 
+      required type="number">
+      <span class="input-group-addon">dB</span>
+    </div>
+  </div>
+  <!-- set cycle time -->
+  <div class="form-group">
+    <label>Cycyle Time : </label>
+    <div class="input-group">
+      <input class="form-control" placeholder="Cycle time" value="<%=noise_config.cycle_time%>" name="cycle_time" 
+      required type="number">
+      <span class="input-group-addon">Sec.</span>
+    </div>
+  </div>
+  <button type="submit" class="form-control btn btn-primary ladda-button" data-style="expand-left" >
+    <span class="ladda-label"> <i class="fa fa-check"></i> Update changes</span>
+  </button>
+</form>

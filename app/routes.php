@@ -32,5 +32,8 @@ Route::group(array('prefix' => 'api'), function()
 
   //CRDU methods for temperatures 
   Route::resource('temperatures', 'api\TemperatureApiController');
+
+  //CRDU methods for temperatures configurations
+  Route::resource('noises/config', 'api\NoisesConfigApiController');
 });
 

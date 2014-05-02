@@ -5,9 +5,10 @@ define ([
     'underscore',
     'backbone',
     'text!templates/noises/index.html',
+    'views/noises/_controlPanel',
     'highcharts_exporting',
 
-], function (Highcharts, _, Backbone, NoisesTemplate ) {
+], function (Highcharts, _, Backbone, NoisesTemplate, ControlPanelView, ignore1 ) {
   'use strict';
 
   var NoisesView = Backbone.View.extend({
@@ -106,6 +107,9 @@ define ([
         // Load the compiled HTML template into the Backbone
         this.$el.html (this.template());
         this.renderHighCharts();
+
+        var controlPanelView = new ControlPanelView({id: 1});
+        this.$el.find('#noises-control-panel').append(controlPanelView.render().el);
 
         this.$( "text" ).last().empty();
         return this;

@@ -89,7 +89,7 @@ define ([
         }));
         this.drawLineChart();
 
-        var controlPanelView = new ControlPanelView();
+        var controlPanelView = new ControlPanelView({id: 1});
         this.$el.find('#control-panel').append(controlPanelView.render().el);
         return this;
       },

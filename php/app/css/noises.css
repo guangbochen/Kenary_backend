@@ -1,3 +1,9 @@
 #noise-container {
   width: 80%;
 }
+
+#noises-control-panel {
+  border: solid 1px #eee;
+  padding: 15px !important;
+  padding-bottom: 30px !important;
+}
