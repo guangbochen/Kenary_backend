@@ -7,12 +7,12 @@ define ([
   'use strict';
 
   // add temprature model
-  var TempConfigModel = Backbone.Model.extend ({
+  var NoiseConfigModel = Backbone.Model.extend ({
     urlRoot: Common.ApiUrl + '/noises/config',
 
     initialize: function(){
     },
   }); 
 
-  return TempConfigModel;
+  return NoiseConfigModel;
 });
