@@ -52,10 +52,12 @@ class TemperatureApiController extends \Controller
     return \Temperature::make(new \Temperature(), $input);
   }
 
+
+  // api/temperatures/seed
   public function seed()
   {
-    /* $temp = rand(-20, 70); */
-    $temp = rand(-30, -50);
+    $temp = rand(20, 30);
+    /* $temp = rand(-30, -50); */
     $input = array();
 
     if($temp<40 && $temp > -10){

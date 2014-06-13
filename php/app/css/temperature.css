@@ -38,3 +38,54 @@
 #temperatures h4 {
   color: #455162;
 }
+
+
+.span {
+  position : absolute;
+  /* left: 40%; */
+  /* top: 30%; */
+  width: 200px;
+  height: 200px;
+  z-index: 9999;
+  /* background: #E0A450; */
+  color: #fff;
+  font-size: 20px;
+  /* visibility: hidden; */
+  box-shadow: 10px 10px 5px #888888;
+  border-radius:2px !important;
+  vertical-align:center !important;
+}
+
+#air-quality {
+  left: 15%;
+  top: 20%;
+  background: #86C74C;
+}
+
+#temp {
+  left: 40%;
+  top: 20%;
+  background: #FFC25A;
+}
+
+#health {
+  left: 65%;
+  top: 20%;
+  background: #E11700;
+}
+
+#plus {
+  position: absolute;
+  left: 34%;
+  top: 26%;
+  color: #455162;
+}
+
+#equal {
+  position: absolute;
+  left: 59%;
+  top: 23%;
+  font-size: 70px;
+  font-weight: 700;
+  color: #455162;
+}

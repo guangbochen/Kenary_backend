@@ -13,6 +13,7 @@
 @import url("temperature.css");
 @import url("home.css");
 @import url("noises.css");
+@import url("animations.css");
 
 /*
  * Base structure
@@ -40,10 +41,13 @@ body {
 .navbar-inverse {
   background-color: #455162;
   border-color: #00749B;
+  /* background-color: #E0A450; */
+  /* border-color: #E4D9C9 !important; */
 }
 
 .navbar-brand {
   color: #fff !important;
+  text-shadow: 0 -1px 1px rgba(0,0,0,0.6);
 }
 
 .page-header {
@@ -265,3 +269,31 @@ blockquote {
   width: 7px;
   height: 7px;
 }
+
+
+
+
+
+h4 {
+   font-size: 14px !important;
+}
+
+.btn {
+  font-size: 12px;
+}
+
+#refresh {
+  visibility: hidden;
+}
+
+#chartContainer
+{
+  margin-top: -30px;
+}
+
+/* Small devices (tablets, 768px and up) */
+/* @media (min-width: 768px) { */ 
+/*  h4 { */
+/*    font-size: 10px !important; */
+/*  } */
+/* } */

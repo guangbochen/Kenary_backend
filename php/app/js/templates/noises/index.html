@@ -20,7 +20,18 @@
 
   <hr>
   <!-- displays temperature PID Control Panel -->
-  <div id="noises-control-panel" class="col-md-3"></div>
+  <div id="noises-control-panel" class="col-md-12"></div>
 
+  <div id="noise-alert" class="fadeIn">
+      <i class="fa fa-rss fa-5x fa-rss2"></i>
+      <h2 style="padding: 8px 60px;">Noise</h2>
+  </div>
 
 </div>
+
+<script>
+$('#noise-alert').hide();
+<!-- window.setTimeout(function() { -->
+<!--     $('#noise-alert').show(); -->
+<!--     },6000) -->
+</script>

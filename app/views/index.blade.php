@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>UTS Kenari Pi</title>
+  <title>UTS Kenary M2M</title>
   <meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,width=device-width,height=device-height,user-scalable=yes" />
   <!-- <link href="/img/favicon.png" type="image/png" rel="shortcut icon" > -->
   <!-- <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" > -->
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" >
+  <!-- <link href="/app/dist/css/main.css" rel="stylesheet"> -->
   <link href="/app/css/main.css" rel="stylesheet">
 </head>
 <body>
@@ -19,7 +20,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">UTS Kenari Pi Admin</a>
+      <a class="navbar-brand" href="#">UTS Kenary</a>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
@@ -67,6 +68,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <!-- Load the script "js/main.js" as our entry point -->
+<!-- <script data-main="/app/dist/js/main" src="/app/dist/js/vendor/requirejs/require.js"></script> -->
 <script data-main="/app/js/main" src="/app/js/vendor/requirejs/require.js"></script>
 </body>
 </html>

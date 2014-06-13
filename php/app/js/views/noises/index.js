@@ -34,10 +34,22 @@ define ([
         this.$('#noise-container').highcharts({
             chart: {
                 type: 'scatter',
-                zoomType: 'xy'
+                zoomType: 'xy',
+                events: {
+                    load: function() {
+                        // set up the updating of the chart each second
+                        var series = this.series[0];
+                        setInterval(function() {
+                            var x = (new Date()).getTime(), // current time
+                                y = Math.ceil(Math.random() * 40) + 30;
+                                // y = Math.random() * 40;
+                            series.addPoint([x, y], true, true);
+                        }, 1000);
+                    }
+                }
             },
             title: {
-                text: 'Kenari Noise Sensor'
+                text: 'Kenary Noise Sensor'
             },
             // subtitle: {
             //     text: 'Date: 2003'
@@ -47,9 +59,11 @@ define ([
                 //     enabled: true,
                 //     // text: 'Date'
                 // },
-                startOnTick: true,
-                endOnTick: true,
-                showLastLabel: true
+                type: 'datetime',
+                tickPixelInterval: 150
+                // startOnTick: true,
+                // endOnTick: true,
+                // showLastLabel: true
             },
             yAxis: {
                 title: {
@@ -91,11 +105,28 @@ define ([
                 }
             },
 
+            // series: [{
+            //     name: 'decibels(dB)',
+            //     color: 'rgba(223, 83, 83, .5)',
+            //     data: [[161.2, 51.6], [167.5, 59.0], [159.5, 49.2], [157.0, 63.0], [155.8, 53.6],
+            //         [170.0, 59.0], [159.1, 47.6], [166.0, 69.8], [176.2, 66.8], [160.2, 75.2]]
+            // }]
             series: [{
-                name: 'decibels(dB)',
-                color: 'rgba(223, 83, 83, .5)',
-                data: [[161.2, 51.6], [167.5, 59.0], [159.5, 49.2], [157.0, 63.0], [155.8, 53.6],
-                    [170.0, 59.0], [159.1, 47.6], [166.0, 69.8], [176.2, 66.8], [160.2, 75.2]]
+              name: 'decibels(dB)',
+              color: 'rgba(223, 83, 83, .5)',
+              data: (function() {
+                // generate an array of random data
+                var data = [],
+              time = (new Date()).getTime(), i;
+
+              for (i = -19; i <= 0; i++) {
+                data.push({
+                  x: time + i * 1000,
+                  y: Math.random() * 30
+                });
+              }
+              return data;
+              })()
             }]
         });
       },

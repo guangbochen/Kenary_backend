@@ -20,13 +20,17 @@
 <% }else if (device.temp_status === -1) {%>
 <td>
   <a href="#/temperatures" class="tips warning-blink" data-toggle="tooltip" data-placement="bottom" title="Click to view details"> 
-    <center> <i class="fa fa-exclamation-triangle fa-3x"></i> <br> Avg: <%=device.temp%>°C </center> 
+    <center> <i class="fa fa-exclamation-triangle fa-3x"></i> 
+      <!-- <br> Avg: <%=device.temp%>°C --> 
+    </center> 
   </a>
 </td>
 <%} else {%>
 <td> 
   <a href="#/temperatures" class="tips" data-toggle="tooltip" data-placement="bottom" title="Click to view Temperature details"> 
-    <center> <i class="fa fa-check-circle-o fa-2x"></i> <br> Avg: <%=device.temp%>°C </center> 
+    <center> <i class="fa fa-check-circle-o fa-2x"></i> 
+      <!-- <br> Avg: <%=device.temp%>°C --> 
+    </center> 
   </a>
 </td>
 <%} %>
@@ -35,19 +39,25 @@
 <%if (device.noise_status === 1) {%>
 <td>
   <a href="#/noises" class="tips danger-blink" data-toggle="tooltip" data-placement="bottom" title="Click to view details"> 
-    <center> <i class="fa fa-bell icon-animated-bell fa-3x"></i> <br> Avg: N/A </center> 
+    <center> <i class="fa fa-bell icon-animated-bell fa-3x"></i>
+      <!-- <br> Avg: N/A --> 
+    </center> 
   </a>
 </td>
 <% }else if (device.noise_status === -1) {%>
 <td>
   <a href="#/noises" class="tips warning-blink" data-toggle="tooltip" data-placement="bottom" title="Click to view details"> 
-    <center> <i class="fa fa-exclamation-triangle fa-3x"></i> <br> Avg: N/A </center> 
+    <center> <i class="fa fa-exclamation-triangle fa-3x"></i> 
+      <!-- <br> Avg: N/A --> 
+    </center> 
   </a>
 </td>
 <%} else {%>
 <td>
   <a href="#/noises" class="tips" data-toggle="tooltip" data-placement="bottom" title="Click to view details"> 
-    <center> <i class="fa fa-check-circle-o fa-2x"></i> <br> Avg: N/A </center> 
+    <center> <i class="fa fa-check-circle-o fa-2x"></i> 
+      <!-- <br> Avg: N/A --> 
+    </center> 
   </a>
 </td>
 <%} %>
@@ -55,7 +65,9 @@
 <!-- airs status -->
 <td>
   <a href="#/airs" class="tips" data-toggle="tooltip" data-placement="bottom" title="Click to view details">
-    <center> <i class="fa fa-check-circle-o fa-2x"></i> <br> Avg: N/A </center>
+    <center> <i class="fa fa-check-circle-o fa-2x"></i> 
+      <!-- <br> Avg: N/A --> 
+    </center>
   </a>
 </td>
 

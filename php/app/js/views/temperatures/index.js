@@ -101,7 +101,7 @@ define ([
         nv.addGraph(function() {  
           var chart = nv.models.lineChart()
           .options ({
-            margin: {left: 75},
+            margin: {left: 35},
             showXAxis: true,
             showYAxis: true,
             showLegend: true,

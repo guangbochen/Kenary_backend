@@ -7,3 +7,28 @@
   padding: 15px !important;
   padding-bottom: 30px !important;
 }
+
+
+#noise-alert {
+  position : absolute;
+  left: 40%;
+  top: 30%;
+  width: 200px;
+  height: 200px;
+  z-index: 9999;
+  background: #E0A450;
+  color: #fff;
+  font-size: 20px;
+  /* visibility: hidden; */
+  box-shadow: 10px 10px 5px #888888;
+  border-radius:2px !important;
+}
+
+.fa-rss2 {
+  color: #fff ;
+  padding-left: 90px;
+  padding-top: 20px;
+  -webkit-transform:rotate(40deg); /* Opera, Chrome, and Safari */
+}
+
+
