@@ -1,8 +1,9 @@
-## UTS Kenari backend 
+## UTS Kenary backend server
 
 
 
-Root API: <a href="http://kenari-printee.rhcloud.com/api">kenari-printee.rhcloud.com/api</a>
+Demo: <a href="http://kenari-printee.rhcloud.com">Kenary Demo</a>
+Root API: <a href="http://kenari-printee.rhcloud.com/api">Kenary Api</a>
 
 ###1.0 Temperatures(GET)
 
